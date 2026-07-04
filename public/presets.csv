@@ -1,0 +1,9 @@
+# Theme presets for the customizer. First data row = the default the site opens in.
+# themes_allowed caps how many themes the site reads (top N rows).
+# Fonts named here must exist in the app's display/body font maps.
+# Columns: name,bg,surface,ink,ink2,ink3,accent,display,body
+themes_allowed,3
+Blueprint,#F3F6F9,#FAFCFE,#15202E,#47566A,#8696A6,#2D5BD6,Space Grotesk,Hanken Grotesk
+Graphite,#F1F0ED,#F8F7F4,#1B1B19,#54534E,#8B8A83,#1B1B19,Fraunces,Hanken Grotesk
+Indigo,#F5F5F8,#FBFBFE,#1A1830,#4E4C6A,#8A88A0,#4338E0,Bricolage Grotesque,Inter
+Sage,#F2F4F0,#F9FAF7,#1C2620,#4C5A50,#8A968C,#3B7A57,Familjen Grotesk,Figtree
