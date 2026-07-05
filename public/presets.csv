@@ -1,9 +1,32 @@
-# Theme presets for the customizer. First data row = the default the site opens in.
-# themes_allowed caps how many themes the site reads (top N rows).
-# Fonts named here must exist in the app's display/body font maps.
-# Columns: name,bg,surface,ink,ink2,ink3,accent,display,body
-themes_allowed,3
-Blueprint,#F3F6F9,#FAFCFE,#15202E,#47566A,#8696A6,#2D5BD6,Space Grotesk,Hanken Grotesk
-Graphite,#F1F0ED,#F8F7F4,#1B1B19,#54534E,#8B8A83,#1B1B19,Fraunces,Hanken Grotesk
-Indigo,#F5F5F8,#FBFBFE,#1A1830,#4E4C6A,#8A88A0,#4338E0,Bricolage Grotesque,Inter
-Sage,#F2F4F0,#F9FAF7,#1C2620,#4C5A50,#8A968C,#3B7A57,Familjen Grotesk,Figtree
+# ============================================================================
+#  Theme presets for the site's customizer.
+#
+#  FONTS — register any Google font, then reference it by name in a theme row:
+#     font,<Family Name>,<serif|sans|mono>,<full Google Fonts URL>
+#  The URL may contain commas; it is rejoined when parsed. <serif|sans|mono>
+#  sets the fallback stack and default heading tracking. To add your own font,
+#  copy its share URL from fonts.google.com ("Get embed code" -> the css2 link)
+#  and add a line here, then name it in the display/body/muted column below.
+#
+#  THEMES — first theme row after themes_allowed is the DEFAULT the site opens in.
+#     themes_allowed,N        (reads only the top N theme rows)
+#     name,bg,surface,ink,ink2,ink3,accent,display,body,muted,heading_px,body_px,muted_px
+#  Colors are hex. display/body/muted are font names registered above (or built in).
+#  heading_px/body_px/muted_px set the three type sizes (heading is the desktop cap).
+# ============================================================================
+
+font,Space Grotesk,sans,https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap
+font,Hanken Grotesk,sans,https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap
+font,JetBrains Mono,mono,https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap
+font,Fraunces,serif,https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap
+font,Bricolage Grotesque,sans,https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap
+font,Inter,sans,https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap
+font,Familjen Grotesk,sans,https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap
+font,Figtree,sans,https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap
+
+themes_allowed,4
+# name,bg,surface,ink,ink2,ink3,accent,display,body,muted,heading_px,body_px,muted_px
+Blueprint,#F3F6F9,#FAFCFE,#15202E,#47566A,#8696A6,#2D5BD6,Space Grotesk,Hanken Grotesk,JetBrains Mono,80,17,11
+Graphite,#F1F0ED,#F8F7F4,#1B1B19,#54534E,#8B8A83,#1B1B19,Fraunces,Hanken Grotesk,JetBrains Mono,80,17,11
+Indigo,#F5F5F8,#FBFBFE,#1A1830,#4E4C6A,#8A88A0,#4338E0,Bricolage Grotesque,Inter,JetBrains Mono,80,17,11
+Sage,#F2F4F0,#F9FAF7,#1C2620,#4C5A50,#8A968C,#3B7A57,Familjen Grotesk,Figtree,JetBrains Mono,80,17,11
