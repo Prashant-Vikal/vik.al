@@ -1,4 +1,6 @@
-export default function Project({ label, name, href, desc, go, graphic, ariaLabel, tag, flip }) {
+import Scene from './Scene.jsx'
+
+export default function Project({ label, name, href, desc, go, scene, flip }) {
   return (
     <article className={flip ? 'project flip' : 'project'}>
       <div className="project-text">
@@ -15,9 +17,10 @@ export default function Project({ label, name, href, desc, go, graphic, ariaLabe
           <span className="go">{go}</span>
         )}
       </div>
-      <figure className="graphic" data-graphic={graphic} aria-label={ariaLabel}>
+      <figure className="graphic" aria-label={scene.ariaLabel}>
         <span className="corner tl"></span><span className="corner tr"></span><span className="corner bl"></span><span className="corner br"></span>
-        <span className="tag">{tag}</span>
+        <Scene id={scene.id} html={scene.html} />
+        <span className="tag">{scene.tag}</span>
       </figure>
     </article>
   )

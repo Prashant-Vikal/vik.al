@@ -1,23 +1,19 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import PointOfView from './components/PointOfView.jsx'
 import Work from './components/Work.jsx'
 import Footer from './components/Footer.jsx'
 import ThemeBuilder from './components/ThemeBuilder.jsx'
-import { initGraphics } from './three/graphics.js'
+import { initScenes } from './scenes/animate.js'
 
 export default function App() {
-  const applyThemeRef = useRef(() => {})
+  const [czOpen, setCzOpen] = useState(false)
 
-  /* three.js: one renderer drawing every [data-graphic] viewport */
+  /* anime.js SVG scenes */
   useEffect(() => {
-    const { applyTheme, dispose } = initGraphics()
-    applyThemeRef.current = applyTheme
-    return () => {
-      dispose()
-      applyThemeRef.current = () => {}
-    }
+    const dispose = initScenes()
+    return dispose
   }, [])
 
   /* scroll reveals */
@@ -28,17 +24,22 @@ export default function App() {
         en.forEach((e) => {
           if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
         })
-      }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' })
+      }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' })
       rev.forEach((e) => io.observe(e))
       return () => io.disconnect()
     }
     rev.forEach((e) => e.classList.add('in'))
   }, [])
 
+  /* Escape closes the drawer */
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setCzOpen(false) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
   return (
     <>
-      <canvas id="webgl"></canvas>
-
       <div className="layer">
         <Header />
         <main>
@@ -46,10 +47,10 @@ export default function App() {
           <PointOfView />
           <Work />
         </main>
-        <Footer />
+        <Footer czOpen={czOpen} onToggleCz={() => setCzOpen((o) => !o)} />
       </div>
 
-      <ThemeBuilder applyThemeRef={applyThemeRef} />
+      <ThemeBuilder open={czOpen} onClose={() => setCzOpen(false)} />
     </>
   )
 }

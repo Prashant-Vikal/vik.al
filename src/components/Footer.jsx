@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ czOpen, onToggleCz }) {
   return (
     <footer className="wrap reveal">
       <div className="foot-grid">
@@ -11,6 +11,15 @@ export default function Footer() {
       <div className="colophon">
         <span>© 2026 Vik Al</span>
         <span>Designed and built end to end</span>
+        <button
+          className="cz-link"
+          id="cz-open"
+          aria-expanded={czOpen ? 'true' : 'false'}
+          aria-controls="cz"
+          onClick={onToggleCz}
+        >
+          Customize theme
+        </button>
       </div>
     </footer>
   )
