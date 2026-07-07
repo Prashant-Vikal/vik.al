@@ -24,7 +24,7 @@ font,Inter,sans,https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&
 font,Familjen Grotesk,sans,https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap
 font,Figtree,sans,https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap
 
-themes_allowed,3
+themes_allowed,4
 # name,bg,surface,ink,ink2,ink3,accent,display,body,muted,heading_px,body_px,muted_px
 Vikal,#F3F6F9,#FAFCFE,#15202E,#47566A,#8696A6,#2D5BD6,Familjen Grotesk,Sora,JetBrains Mono,80,17,11
 Blueprint,#F3F6F9,#FAFCFE,#15202E,#47566A,#8696A6,#2D5BD6,Space Grotesk,Hanken Grotesk,JetBrains Mono,80,17,11
