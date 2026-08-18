@@ -18,6 +18,7 @@ export default function Hero() {
     <section className="wrap hero">
       <div className="hero-text">
         <h1 className="load">I design the systems by which design gets done.</h1>
+        <p className="sub load">I build the methodology, tooling, and AI-native architecture that allow product teams to ship high-fidelity work predictably and at scale. Most of what I build isn’t the screen. It is the autonomous engine behind it.</p>
         <p className="sub load">Methodology, tooling, and decision systems that let design teams do their best work, repeatably. Most of what I build is not the screen. It is the structure behind it.</p>
         <p className="meta load">Head of Design at Cypherock, 2022 to 2026 · Fourteen years building products and the teams behind them.</p>
       </div>
