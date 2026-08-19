@@ -1,6 +1,4 @@
-{/*
-import { useState } from 'react'
-*/}
+{/* import { useState } from 'react' */}
 
 /* Inline placeholder silhouette, ported verbatim from reference.html. */
 function Placeholder() {
@@ -14,7 +12,7 @@ function Placeholder() {
 }
 
 export default function Hero() {
-  const [failed, setFailed] = useState(false)
+  {/* const [failed, setFailed] = useState(false) */}
 
   return (
     <section className="wrap hero">
