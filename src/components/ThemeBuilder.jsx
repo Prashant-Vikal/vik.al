@@ -127,7 +127,7 @@ export default function ThemeBuilder({ open, onClose }) {
 
   /* colours + derived hairlines/grid */
   useEffect(() => {
-    const gridAlpha = (gridVal / 10) * 0.1
+    const gridAlpha = (gridVal / 10) * 0.2
     S('--bg', colors.bg); S('--surface', colors.surface); S('--ink', colors.ink)
     S('--ink-2', colors.ink2); S('--ink-3', colors.ink3); S('--accent', colors.accent)
     S('--line', hexA(colors.ink, 0.16)); S('--line-strong', hexA(colors.ink, 0.3)); S('--grid', hexA(colors.ink, gridAlpha))
