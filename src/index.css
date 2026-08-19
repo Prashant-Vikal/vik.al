@@ -45,7 +45,10 @@ a { color: inherit; }
 .hero h1 { font-family: var(--display); font-weight: var(--dw); font-size: clamp(2.4rem, 7vw, var(--heading-size)); line-height: 1.0; letter-spacing: var(--dtrack); max-width: 14ch; }
 */
 .hero h1 { font-family: var(--display); font-weight: var(--dw); font-size: clamp(2.4rem, 7vw, var(--heading-size)); line-height: 1.0; letter-spacing: var(--dtrack); margin-left: auto; margin-right: auto;}
+/*
 .hero .sub { margin-top: clamp(1.4rem, 3vw, 2rem); max-width: 46ch; color: var(--ink-2); font-size: calc(var(--body-size) * 1.06); line-height: 1.6; }
+*/
+.hero .sub { margin-top: clamp(1.4rem, 3vw, 2rem); color: var(--ink-2); font-size: calc(var(--body-size) * 1.06); line-height: 1.6; text-align: center; }
 .hero .meta { margin-top: 1.5rem; font-family: var(--muted-font); font-size: var(--muted-size); letter-spacing: 0.04em; color: var(--ink-3); }
 
 .hero-photo { position: relative; justify-self: end; width: min(100%, 340px); aspect-ratio: 4 / 5; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--surface); }
