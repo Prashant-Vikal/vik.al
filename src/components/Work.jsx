@@ -34,7 +34,7 @@ const PROJECTS = [
     name: 'VikSense',
     href: 'https://chatgpt.com/g/g-692dc948c7748191bf5670f0bfaad32f-viksense',
     desc: "A custom GPT that converts a design organization's tacit knowledge into an automated onboarding and first-pass review agent. It eliminates the scaling bottleneck of expertise trapped in senior leaders' heads.",
-    {/*desc: "A custom GPT that turns a design org's tacit knowledge into onboarding, tutorials, and first-pass design review that anyone on the team can use.",*/}
+    //desc: "A custom GPT that turns a design org's tacit knowledge into onboarding, tutorials, and first-pass design review that anyone on the team can use.",
     scene: byId['sc-converge'],
     flip: true,
   },
