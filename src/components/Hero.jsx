@@ -1,4 +1,6 @@
+{/*
 import { useState } from 'react'
+*/}
 
 /* Inline placeholder silhouette, ported verbatim from reference.html. */
 function Placeholder() {
@@ -22,6 +24,8 @@ export default function Hero() {
         {/* <p className="sub load">Methodology, tooling, and decision systems that let design teams do their best work, repeatably. Most of what I build is not the screen. It is the structure behind it.</p>*/}
         <p className="meta load">Head of Design at Cypherock, 2022 to 2026 · Fourteen years building products and the teams behind them.</p>
       </div>
+      
+      {/*
       <figure className="hero-photo load" aria-label="Portrait of Vik Al">
         <span className="corner tl"></span><span className="corner tr"></span><span className="corner bl"></span><span className="corner br"></span>
         {failed ? (
@@ -33,6 +37,8 @@ export default function Hero() {
           <img src="/vik.jpg" alt="Portrait of Vik Al" onError={() => setFailed(true)} />
         )}
       </figure>
+      */}
+      
     </section>
   )
 }
