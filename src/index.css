@@ -43,7 +43,8 @@ a { color: inherit; }
 .hero { padding-top: clamp(2.5rem, 9vh, 5rem); padding-bottom: clamp(4rem, 12vh, 7rem); text-align: center; }
 */
 .hero {
-  min-height: 100svh;          /* full screen height */
+  /*  min-height: 100svh;          full screen height */
+  min-height: calc(100svh - 5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
