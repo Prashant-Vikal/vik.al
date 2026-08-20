@@ -23,8 +23,7 @@ export default function Hero() {
         <p className="meta load">Head of Design at Cypherock, 2022 to 2026 · Fourteen years building products and the teams behind them.</p>
       </div>
       
-      {/*
-      <figure className="hero-photo load" aria-label="Portrait of Vik Al">
+      {/* <figure className="hero-photo load" aria-label="Portrait of Vik Al">
         <span className="corner tl"></span><span className="corner tr"></span><span className="corner bl"></span><span className="corner br"></span>
         {failed ? (
           <>
@@ -34,9 +33,13 @@ export default function Hero() {
         ) : (
           <img src="/vik.jpg" alt="Portrait of Vik Al" onError={() => setFailed(true)} />
         )}
-      </figure>
-      */}
+      </figure> */}
       
+      <a className="scroll-cue" href="#pov" aria-label="Scroll for more">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </a>
     </section>
   )
 }
