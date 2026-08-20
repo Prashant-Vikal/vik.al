@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <section className="wrap hero">
       <div className="hero-text">
-        <h1 className="load">I lead design as a core business function.</h1>
+        <h1 className="load">I lead design as a core <span className="q">business function.</span></h1>
         {/* <h1 className="load">I design the systems by which design gets done.</h1> */}
         <p className="sub load">I build the methodology, tooling, and AI-native architecture that allow product teams to ship high-fidelity work predictably and at scale. Most of what I build isn’t the screen. It is the autonomous engine behind it.</p>
         {/* <p className="sub load">Methodology, tooling, and decision systems that let design teams do their best work, repeatably. Most of what I build is not the screen. It is the structure behind it.</p> */}
