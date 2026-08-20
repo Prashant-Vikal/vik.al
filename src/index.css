@@ -49,6 +49,7 @@ a { color: inherit; }
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  position: relative; /* For arrow */
 }
 /*
 .hero h1 { font-family: var(--display); font-weight: var(--dw); font-size: clamp(2.4rem, 7vw, var(--heading-size)); line-height: 1.0; letter-spacing: var(--dtrack); max-width: 14ch; }
