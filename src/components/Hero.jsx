@@ -36,6 +36,7 @@ export default function Hero() {
       </figure> */}
       
       <a className="scroll-cue" href="#pov" aria-label="Scroll for more">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M6 9l6 6 6-6" />
         </svg>
