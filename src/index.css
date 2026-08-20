@@ -77,6 +77,23 @@ a { color: inherit; }
 .hero-photo.load { animation-delay: 0.30s; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
+/* Hero arrow scroll/animation */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4rem;
+  transform: translateX(-50%);
+  color: var(--ink-3);
+  transition: color 0.2s ease;
+  animation: bob 1.8s ease-in-out infinite;
+}
+.scroll-cue:hover { color: var(--accent); }
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.45; }
+  50%      { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+/* End of Hero arrow scroll/animation */
+
 .pov { padding-top: clamp(2rem, 6vh, 4rem); padding-bottom: clamp(3.5rem, 10vh, 6rem); border-top: 1px solid var(--line); }
 .pov .eyebrow { display: block; margin-bottom: clamp(1.4rem, 3vw, 2.2rem); }
 .pov p { font-family: var(--display); font-weight: 500; font-size: clamp(1.4rem, 3.2vw, calc(var(--heading-size) * 0.46)); line-height: 1.32; letter-spacing: var(--dtrack); max-width: 30ch; }
