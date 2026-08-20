@@ -69,7 +69,7 @@ a { color: inherit; }
 
 .pov { padding-top: clamp(2rem, 6vh, 4rem); padding-bottom: clamp(3.5rem, 10vh, 6rem); border-top: 1px solid var(--line); }
 .pov .eyebrow { display: block; margin-bottom: clamp(1.4rem, 3vw, 2.2rem); }
-.pov p { font-family: var(--display); font-weight: 500; font-size: clamp(1.4rem, 3.2vw, calc(var(--heading-size) * 0.46)); line-height: 1.32; letter-spacing: var(--dtrack); {/*max-width: 30ch;*/} }
+.pov p { font-family: var(--display); font-weight: 500; font-size: clamp(1.4rem, 3.2vw, calc(var(--heading-size) * 0.46)); line-height: 1.32; letter-spacing: var(--dtrack); max-width: 30ch; }
 .pov p .q { color: var(--ink-3); }
 
 .work-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: clamp(0.8rem, 2vw, 1.4rem); border-bottom: 1px solid var(--line-strong); }
