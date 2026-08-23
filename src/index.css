@@ -111,7 +111,7 @@ a { color: inherit; }
   top: 0; bottom: 0; left: 50%;
   width: 100vw;              /* break out to full viewport width */
   transform: translateX(-50%);
-  background: #000;          /* pure black; try #0B0F14 for a softer near-black */
+  background: #0B0F14;          /* pure black; try #0B0F14 for a softer near-black */
   z-index: -1;               /* sit behind the text (and cover the grid) */
 }
 
