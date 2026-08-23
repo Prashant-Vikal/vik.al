@@ -1,7 +1,7 @@
 name: Deploy site to Pages
 on:
   push:
-    branches: [main]
+    branches: [pov-full]
   workflow_dispatch:
 permissions:
   contents: read
