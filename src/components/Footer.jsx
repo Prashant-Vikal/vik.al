@@ -1,10 +1,10 @@
 export default function Footer({ czOpen, onToggleCz }) {
   return (
     <footer className="wrap reveal">
-      <div className="foot-grid">
-        <p className="lead">Built on structure, not improvisation.</p>
+      <div className="tile contact">
+        <p className="foot-kicker">Built on structure, not improvisation.</p>
+        <a className="foot-mail" href="mailto:hi@vik.al">hi@vik.al</a>
         <div className="links">
-          <a href="mailto:vikal.media@gmail.com">hi@vik.al</a>
           <a href="https://www.linkedin.com/in/vik-al/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>
       </div>

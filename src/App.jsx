@@ -10,10 +10,24 @@ import { initScenes } from './scenes/animate.js'
 export default function App() {
   const [czOpen, setCzOpen] = useState(false)
 
-  /* anime.js SVG scenes */
+  /* anime.js SVG scenes, paused while off-screen */
   useEffect(() => {
-    const dispose = initScenes()
-    return dispose
+    const { registry, dispose } = initScenes()
+    let io
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          const insts = registry[e.target.id]
+          if (!insts) return
+          insts.forEach((a) => (e.isIntersecting ? a.play() : a.pause()))
+        })
+      }, { rootMargin: '0px 0px 10% 0px' })
+      document.querySelectorAll('.scene').forEach((el) => io.observe(el))
+    }
+    return () => {
+      if (io) io.disconnect()
+      dispose()
+    }
   }, [])
 
   /* scroll reveals */
