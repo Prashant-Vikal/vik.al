@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
+import TrackRecord from './components/TrackRecord.jsx'
 import PointOfView from './components/PointOfView.jsx'
 import Work from './components/Work.jsx'
 import Footer from './components/Footer.jsx'
@@ -58,6 +59,7 @@ export default function App() {
         <Header />
         <main>
           <Hero />
+          <TrackRecord />
           <PointOfView />
           <Work />
         </main>

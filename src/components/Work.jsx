@@ -16,21 +16,18 @@ const PROJECTS = [
   {
     label: 'Decision quality',
     name: 'Throughline',
-    href: 'https://throughline.vikals.com',
     desc: 'A hiring evaluation system that makes the reasoning behind every decision visible and keeps the final call human. It computes and recommends. It never auto-decides.',
     scene: byId['sc-flow'],
   },
   {
     label: 'Tooling',
     name: 'Handsoff',
-    href: 'https://www.figma.com/community/plugin/1566768370192138452/handsoff-beta',
     desc: 'A Figma plugin that generates component documentation from the components themselves, so a growing system stays trustworthy instead of drifting out of date.',
     scene: byId['sc-emit'],
   },
   {
     label: 'Enablement',
     name: 'VikSense',
-    href: 'https://chatgpt.com/g/g-692dc948c7748191bf5670f0bfaad32f-viksense',
     desc: "A custom GPT that converts a design organization's tacit knowledge into an automated onboarding and first-pass review agent. It eliminates the scaling bottleneck of expertise trapped in senior leaders' heads.",
     //desc: "A custom GPT that turns a design org's tacit knowledge into onboarding, tutorials, and first-pass design review that anyone on the team can use.",
     scene: byId['sc-converge'],
@@ -56,17 +53,9 @@ export default function Work() {
         {PROJECTS.map((p) => (
           <article key={p.name} className={p.feature ? 'tile feature' : 'tile'}>
             <span className="eyebrow ink">{p.label}</span>
-            {p.href ? (
-              <a className="name" href={p.href} target="_blank" rel="noopener noreferrer">{p.name}</a>
-            ) : (
-              <span className="name">{p.name}</span>
-            )}
+            <span className="name">{p.name}</span>
             <p className="desc">{p.desc}</p>
-            {p.href ? (
-              <a className="go live" href={p.href} target="_blank" rel="noopener noreferrer">Visit <span className="arrow">↗</span></a>
-            ) : (
-              <span className="go">{p.go}</span>
-            )}
+            {p.go ? <span className="go">{p.go}</span> : null}
             <figure className="tile-scene" aria-label={p.scene.ariaLabel}>
               <Scene id={p.scene.id} html={p.scene.html} />
               <span className="tag">{p.scene.tag}</span>
