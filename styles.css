@@ -307,9 +307,9 @@ em {
 .label-count { color: var(--ink-3); }
 
 /* Reveal on scroll — only when JS is available, so content is never trapped.
-   The work list is skipped here; its entries reveal one at a time instead. */
-.has-js .section > *:not(.systems) { opacity: 0; transform: translateY(12px); }
-.has-js .section.in-view > *:not(.systems) {
+   The exhibits are skipped here; each one reveals on its own instead. */
+.has-js .section > *:not(.exhibits) { opacity: 0; transform: translateY(12px); }
+.has-js .section.in-view > *:not(.exhibits) {
   opacity: 1;
   transform: none;
   transition: opacity .7s var(--ease), transform .7s var(--ease);
@@ -318,16 +318,9 @@ em {
 .has-js .section.in-view > *:nth-child(3) { transition-delay: .14s; }
 .has-js .section.in-view > *:nth-child(4) { transition-delay: .21s; }
 
-.has-js .system { opacity: 0; transform: translateY(12px); }
-.has-js .system.in-view {
-  opacity: 1;
-  transform: none;
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
-}
 
 @media (prefers-reduced-motion: reduce) {
-  .has-js .section > *,
-  .has-js .system { opacity: 1; transform: none; transition: none; }
+  .has-js .section > * { opacity: 1; transform: none; transition: none; }
 }
 
 /* --- 7. Opening ---------------------------------------------------------- */
@@ -501,39 +494,124 @@ em {
 .pov-key { color: var(--ink); }
 
 /* --- 10. Selected work --------------------------------------------------- */
+/* A register to scan, then five exhibits to look at. */
 
-.systems { display: grid; }
+.register {
+  border-top: 1px solid var(--ink);
+  margin-bottom: clamp(4rem, 9vw, 7rem);
+}
 
-.system {
+.register a {
   display: grid;
-  gap: 2rem;
-  align-items: start;
-  border-top: 1px solid var(--rule);
-  padding-block: clamp(2.25rem, 4vw, 3.25rem);
+  grid-template-columns: 2.5rem minmax(0, 1fr) 1.25rem;
+  grid-template-areas:
+    "num name go"
+    "num meta go";
+  align-items: baseline;
+  gap: .3rem 1rem;
+  padding: 1rem .5rem;
+  border-bottom: 1px solid var(--rule);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color .2s var(--ease);
 }
-.system:last-child { border-bottom: 1px solid var(--rule); }
+.register a:hover { background: var(--surface); }
 
-@media (min-width: 860px) {
-  .system {
-    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
-    gap: clamp(2rem, 4vw, 3.5rem);
-  }
+.reg-num {
+  grid-area: num;
+  font-family: var(--mono);
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  color: var(--signal);
 }
-
-.sys-meta {
+.reg-name {
+  grid-area: name;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+.reg-meta {
+  grid-area: meta;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: .75rem;
+  gap: .25rem 1rem;
+}
+.reg-cat,
+.reg-status {
+  font-family: var(--mono);
+  font-size: .625rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.reg-status.is-wip { color: var(--signal); }
+.reg-go {
+  grid-area: go;
+  justify-self: end;
+  font-family: var(--mono);
+  font-size: .75rem;
+  color: var(--ink-3);
+  transition: transform .25s var(--ease), color .2s;
+}
+.register a:hover .reg-go { transform: translateY(3px); color: var(--signal); }
+
+@media (min-width: 760px) {
+  .register a {
+    grid-template-columns: 3rem minmax(0, 1fr) 11rem 7rem 1.25rem;
+    grid-template-areas: "num name cat status go";
+    padding: 1.15rem .75rem;
+  }
+  .reg-meta { display: contents; }
+  .reg-cat { grid-area: cat; }
+  .reg-status { grid-area: status; }
+}
+
+/* Exhibits: a large panel and a wall label, bottom-aligned, alternating. */
+
+.exhibits { display: grid; gap: clamp(4.5rem, 10vw, 8rem); }
+
+.exhibit { display: grid; gap: 1.5rem; scroll-margin-top: 7rem; }
+@media (min-width: 1080px) { .exhibit { scroll-margin-top: 3rem; } }
+
+.exhibit-figure {
+  order: -1;
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+.exhibit-text {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .exhibit {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: end;
+  }
+  .exhibit-figure { order: 0; grid-row: 1; grid-column: 1 / span 8; }
+  .exhibit-text   { grid-row: 1; grid-column: 9 / span 4; }
+  .exhibit:nth-child(even) .exhibit-figure { grid-column: 5 / span 8; }
+  .exhibit:nth-child(even) .exhibit-text   { grid-column: 1 / span 4; }
+}
+
+.ex-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem .9rem;
+  margin-bottom: 1rem;
   font-family: var(--mono);
   font-size: .6875rem;
   letter-spacing: .13em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
 }
-.sys-num { color: var(--signal); font-weight: 500; }
-.sys-cat { color: var(--ink-3); }
-.sys-status {
+.ex-num { color: var(--signal); font-weight: 500; }
+.ex-cat { color: var(--ink-3); }
+.ex-status {
   padding: .2rem .5rem;
   border: 1px solid var(--rule);
   border-radius: 2px;
@@ -541,308 +619,80 @@ em {
   letter-spacing: .1em;
   color: var(--ink-3);
 }
-.sys-status-wip { color: var(--signal); border-color: var(--signal); background: var(--signal-soft); }
+.ex-status.is-wip { color: var(--signal); border-color: var(--signal); background: var(--signal-soft); }
 
-.sys-name {
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
+.ex-name {
+  font-size: clamp(1.625rem, 2.6vw, 2.125rem);
   font-weight: 400;
-  line-height: 1.14;
+  line-height: 1.12;
   letter-spacing: -0.02em;
-  margin-bottom: .75rem;
+  margin-bottom: .875rem;
 }
 
-.sys-desc { color: var(--ink-2); max-width: 34em; }
+.ex-desc { color: var(--ink-2); max-width: 32em; }
 
-/* --- 11. Plates ---------------------------------------------------------- */
-/* Schematic drawings. Ink is structure, signal is whatever is computing. */
+.has-js .exhibit-text { opacity: 0; transform: translateY(12px); }
+.has-js .exhibit.in-view .exhibit-text {
+  opacity: 1;
+  transform: none;
+  transition: opacity .7s var(--ease) .1s, transform .7s var(--ease) .1s;
+}
 
-.plate svg { width: 100%; height: auto; }
+/* --- 11. Drawings -------------------------------------------------------- */
+/* Each drawing starts in disorder and settles into structure as it scrolls
+   into view. `--s` is how much structure the system has imposed (0 → 1);
+   main.js drives it, and it defaults to 1 so the settled state is the
+   fallback. Ink is the material. Signal is only ever the structure. */
 
-.plate rect,
-.plate circle,
-.plate path {
+.exhibit-figure svg { --s: 1; display: block; width: 100%; height: auto; }
+
+.exhibit-figure :where(rect, circle, path, line, polyline) {
   fill: none;
-  stroke: var(--line);
-  stroke-width: 1.2;
+  stroke: var(--ink-2);
+  stroke-width: 1.25;
   stroke-linecap: round;
   stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 
-.plate text {
-  fill: var(--ink-3);
-  stroke: none;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .09em;
-}
+.exhibit-figure pattern path { stroke: var(--rule); stroke-width: 1; vector-effect: none; opacity: .55; }
+.exhibit-figure .x-grid { stroke: none; }
+.exhibit-figure .x-reg path { stroke: var(--ink-3); opacity: .55; }
 
-.plate .p-frame path { stroke: var(--ink-3); opacity: .45; }
-.plate .hair { stroke: var(--rule); }
-.plate .flow-line {
-  stroke: var(--line);
+.exhibit-figure .solid { fill: var(--ink-3); stroke: none; }
+.exhibit-figure .dot   { fill: var(--ink-2); stroke: none; }
+.exhibit-figure .k     { stroke: var(--ink-3); }
+
+/* structure */
+.exhibit-figure .sx       { stroke: var(--signal); stroke-width: 1.5; opacity: var(--s); }
+.exhibit-figure .sx-fill  { fill: var(--signal); stroke: none; opacity: var(--s); }
+.exhibit-figure .sx-faint { stroke: var(--signal); stroke-dasharray: 2 5; opacity: calc(var(--s) * .45); }
+.exhibit-figure .sx-band  { fill: var(--signal); stroke: none; opacity: calc(var(--s) * .07); }
+.exhibit-figure .leader   {
+  vector-effect: none;
+  stroke-width: 1.25;
   stroke-dasharray: 1 1;
-  stroke-dashoffset: 1;
-}
-/* Each plate runs on one clock, so its connectors are timed to that plate
-   rather than to a shared loop that would drift out of phase with it. */
-@keyframes draw {
-  0%       { stroke-dashoffset: 1; }
-  35%, 88% { stroke-dashoffset: 0; }
-  100%     { stroke-dashoffset: 1; }
-}
-@keyframes draw-once { to { stroke-dashoffset: 0; } }
-
-.plate figcaption {
-  margin-top: 1rem;
-  font-family: var(--mono);
-  font-size: .625rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
+  stroke-dashoffset: calc(1 - var(--s));
 }
 
-/* 11.1 VikSchema Studio — layers drop onto a stable base ------------------ */
+/* 02 — the thread, and the gate that is left for a person */
+.exhibit-figure .thread     { stroke: var(--line); stroke-width: 1.5; }
+.exhibit-figure .sx-thread  { stroke: var(--signal); stroke-width: 2; opacity: var(--s); }
+.exhibit-figure .node       { fill: var(--ink-2); stroke: none; }
+.exhibit-figure .gate-ring  { stroke: var(--ink); stroke-width: 2.25; fill: var(--surface); }
+.exhibit-figure .gate-core  { fill: var(--ink); stroke: none; }
 
-.schema-base rect { fill: var(--ink-3); stroke: none; opacity: .55; }
-.schema-base .hatch { stroke: var(--line); stroke-dasharray: 1 6; opacity: .8; }
-
-.layer rect { fill: var(--paper); }
-.layer text { fill: var(--ink-2); }
-.layer-top rect { stroke: var(--signal); }
-.layer-top text { fill: var(--signal); }
-
-.has-js .plate[data-plate="schema"] .layer { opacity: 0; transform: translateY(-30px); }
-.plate[data-plate="schema"].in-view .layer {
-  animation: layer-drop .6s var(--ease) forwards;
-  animation-delay: calc(.11s * var(--i) + .2s);
-}
-@keyframes layer-drop { to { opacity: 1; transform: translateY(0); } }
-
-.plate[data-plate="schema"].in-view .layer-top rect {
-  transform-origin: 66px 76px;
-  animation: adapt 4s ease-in-out 1.6s infinite;
-}
-@keyframes adapt {
-  0%, 100% { transform: scaleX(1); }
-  22%      { transform: scaleX(0.74); }
-  46%      { transform: scaleX(0.9); }
-  70%      { transform: scaleX(1); }
+/* 04 — lanes turn from walls into structure as they open */
+.exhibit-figure .lane {
+  stroke: color-mix(in srgb, var(--signal) calc(var(--s) * 100%), var(--line));
+  stroke-width: 1.25;
 }
 
-/* 11.2 Throughline — compute, then a human decides ----------------------- */
-
-.tl-card rect { fill: var(--paper); }
-.tl-card .card-tab { fill: var(--ink-3); stroke: none; opacity: .5; }
-.tl-rows .hair-line { stroke: var(--rule); stroke-width: 3; }
-
-.tl-rows .dots circle { fill: var(--signal); stroke: none; }
-.tl-rows .dots circle.off { fill: none; stroke: var(--line); }
-
-.has-js .plate[data-plate="throughline"] .dots circle:not(.off) { opacity: 0; }
-.plate[data-plate="throughline"].in-view .dots circle:not(.off) {
-  animation: dot-in .3s var(--ease) forwards;
-  animation-delay: calc(.3s * var(--i) + .07s * var(--j) + .35s);
-}
-.dots circle:nth-child(1) { --j: 0; }
-.dots circle:nth-child(2) { --j: 1; }
-.dots circle:nth-child(3) { --j: 2; }
-.dots circle:nth-child(4) { --j: 3; }
-.dots circle:nth-child(5) { --j: 4; }
-@keyframes dot-in { to { opacity: 1; } }
-
-.plate[data-plate="throughline"].in-view .flow-line {
-  animation: draw-once .8s var(--ease) 1.35s forwards;
-}
-
-.tl-rec rect { stroke: var(--signal); }
-.tl-rec text { fill: var(--signal); text-anchor: middle; font-size: 10px; }
-.has-js .plate[data-plate="throughline"] .tl-rec { opacity: 0; transform: translateY(6px); }
-.plate[data-plate="throughline"].in-view .tl-rec {
-  animation: rise .5s var(--ease) 1.75s forwards;
-}
-@keyframes rise { to { opacity: 1; transform: translateY(0); } }
-
-.tl-stamp rect { stroke: var(--ink); stroke-width: 2; fill: var(--paper); }
-.tl-stamp text { fill: var(--ink); text-anchor: middle; font-size: 12px; font-weight: 600; }
-.has-js .plate[data-plate="throughline"] .tl-stamp { opacity: 0; }
-.plate[data-plate="throughline"].in-view .tl-stamp {
-  transform-origin: 308px 172px;
-  animation: stamp .45s cubic-bezier(.3,1.5,.5,1) 2.35s forwards;
-}
-@keyframes stamp {
-  0%   { opacity: 0; transform: scale(1.75) rotate(-8deg); }
-  60%  { opacity: 1; }
-  100% { opacity: 1; transform: scale(1) rotate(-3deg); }
-}
-
-/* 11.3 Handsoff — the component writes its own documentation ------------- */
-
-.ho-component rect { fill: none; }
-.ho-component .solid { fill: var(--ink-3); stroke: none; opacity: .5; }
-.ho-ticks path { stroke: var(--ink-3); opacity: .5; }
-
-.ho-scan path { stroke: var(--signal); stroke-width: 2; }
-.plate[data-plate="handsoff"].in-view .ho-scan path {
-  animation: scan 4.5s var(--ease) .3s infinite;
-}
-@keyframes scan {
-  0%        { transform: translateX(0);     opacity: 0; }
-  6%        { opacity: 1; }
-  38%       { transform: translateX(162px); opacity: 1; }
-  46%, 100% { transform: translateX(162px); opacity: 0; }
-}
-
-.plate[data-plate="handsoff"].in-view .flow-line {
-  animation: write 4.5s var(--ease) 1.2s infinite;
-}
-
-.ho-pages .sheet { fill: var(--paper); }
-.ho-pages .sheet-3 { opacity: .35; }
-.ho-pages .sheet-2 { opacity: .6; }
-
-.ho-lines path { stroke: var(--line); stroke-dasharray: 1 1; stroke-dashoffset: 1; }
-.ho-lines .solid-line { stroke: var(--signal); stroke-width: 3; }
-.plate[data-plate="handsoff"].in-view .ho-lines path {
-  animation: write 4.5s var(--ease) infinite;
-  animation-delay: calc(1.5s + .17s * var(--i));
-}
-@keyframes write {
-  0%       { stroke-dashoffset: 1; }
-  16%, 84% { stroke-dashoffset: 0; }
-  100%     { stroke-dashoffset: 1; }
-}
-
-/* 11.4 VikSense — scattered knowledge, one core, three outputs ----------- */
-
-.vs-scraps rect { fill: var(--line); stroke: none; }
-.has-js .plate[data-plate="viksense"] .vs-scraps rect { opacity: 0; }
-.plate[data-plate="viksense"].in-view .vs-scraps rect {
-  animation: converge 5s var(--ease) infinite;
-  animation-delay: calc(.09s * var(--i));
-}
-@keyframes converge {
-  0%        { transform: translate(0, 0); opacity: 0; }
-  10%       { opacity: .85; }
-  40%       { transform: translate(var(--dx), var(--dy)); opacity: 0; }
-  100%      { transform: translate(var(--dx), var(--dy)); opacity: 0; }
-}
-
-.vs-core .core-ring { stroke: var(--signal); stroke-width: 1.4; }
-.vs-core .core-dot { fill: var(--signal); stroke: none; }
-.plate[data-plate="viksense"].in-view .vs-core {
-  transform-origin: 194px 114px;
-  animation: core-pulse 5s ease-in-out infinite;
-}
-@keyframes core-pulse {
-  0%, 34%   { transform: scale(1); }
-  44%       { transform: scale(1.12); }
-  58%, 100% { transform: scale(1); }
-}
-
-/* The output connectors ride along with the card that fades in around them. */
-.plate[data-plate="viksense"] .out .flow-line { stroke-dashoffset: 0; }
-
-.vs-outs rect { fill: var(--paper); }
-.vs-outs text { text-anchor: middle; fill: var(--ink-2); }
-.has-js .plate[data-plate="viksense"] .out { opacity: 0; }
-.plate[data-plate="viksense"].in-view .out {
-  animation: emit 5s var(--ease) infinite;
-  animation-delay: calc(.11s * var(--i));
-}
-@keyframes emit {
-  0%, 42%   { opacity: 0; transform: translateX(-12px); }
-  58%, 90%  { opacity: 1; transform: translateX(0); }
-  100%      { opacity: 0; transform: translateX(-12px); }
-}
-
-/* 11.5 AI-Facilitated Design Review — opinion becomes evidence ----------- */
-
-.rv-opinion path { stroke: var(--line); stroke-dasharray: 3 3; }
-.rv-opinion text { text-anchor: middle; fill: var(--ink-3); font-style: italic; letter-spacing: .02em; }
-.plate[data-plate="review"].in-view .rv-opinion {
-  animation: travel 5.5s var(--ease) infinite;
-}
-@keyframes travel {
-  0%        { transform: translateX(0);     opacity: 0; }
-  8%        { opacity: 1; }
-  26%       { transform: translateX(0);     opacity: 1; }
-  44%       { transform: translateX(118px); opacity: 0; }
-  100%      { transform: translateX(118px); opacity: 0; }
-}
-
-.rv-lens rect { stroke: var(--signal); stroke-width: 1.4; }
-.rv-lens .lens-axis { stroke: var(--signal); stroke-dasharray: 1 1; stroke-dashoffset: 1; opacity: .5; }
-.plate[data-plate="review"].in-view .rv-lens .lens-axis {
-  animation: draw 5.5s var(--ease) infinite;
-}
-.plate[data-plate="review"].in-view .rv-lens rect {
-  transform-origin: 196px 122px;
-  animation: lens-pulse 5.5s ease-in-out infinite;
-}
-@keyframes lens-pulse {
-  0%, 32%   { transform: scale(1); }
-  42%       { transform: scale(1.06); }
-  56%, 100% { transform: scale(1); }
-}
-
-.rv-ai circle { stroke: var(--ink-3); }
-.rv-ai text { text-anchor: middle; fill: var(--ink-3); font-size: 10px; }
-.rv-ai .ai-tether { stroke: var(--ink-3); stroke-dasharray: 1 1; stroke-dashoffset: 1; opacity: .6; }
-.plate[data-plate="review"].in-view .rv-ai .ai-tether { animation: draw 5.5s var(--ease) infinite; }
-
-.plate[data-plate="review"].in-view .rv-in {
-  animation: draw-early 5.5s var(--ease) infinite;
-}
-@keyframes draw-early {
-  0%        { stroke-dashoffset: 1; }
-  18%, 40%  { stroke-dashoffset: 0; }
-  52%, 100% { stroke-dashoffset: 1; }
-}
-
-.rv-out { opacity: 0; }
-.plate[data-plate="review"].in-view .rv-out { animation: draw-late 5.5s var(--ease) infinite; }
-@keyframes draw-late {
-  0%, 44%  { opacity: 0; stroke-dashoffset: 1; }
-  56%      { opacity: 1; stroke-dashoffset: 0; }
-  92%      { opacity: 1; stroke-dashoffset: 0; }
-  100%     { opacity: 0; stroke-dashoffset: 1; }
-}
-
-.rv-evidence rect { fill: var(--paper); stroke: var(--ink-2); }
-.rv-evidence text { fill: var(--ink); font-size: 10px; font-weight: 600; }
-.rv-evidence .ev-lines path { stroke: var(--line); stroke-dasharray: 1 1; stroke-dashoffset: 1; }
-.rv-evidence .ev-check { stroke: var(--signal); stroke-width: 1.8; stroke-dasharray: 1 1; stroke-dashoffset: 1; }
-
-.has-js .plate[data-plate="review"] .rv-evidence { opacity: 0; }
-.plate[data-plate="review"].in-view .rv-evidence {
-  transform-origin: 315px 122px;
-  animation: evidence 5.5s var(--ease) infinite;
-}
-@keyframes evidence {
-  0%, 40%   { opacity: 0; transform: scale(.94); }
-  54%, 92%  { opacity: 1; transform: scale(1); }
-  100%      { opacity: 0; transform: scale(.94); }
-}
-.plate[data-plate="review"].in-view .ev-lines path,
-.plate[data-plate="review"].in-view .ev-check {
-  animation: draw-late 5.5s var(--ease) infinite;
-  animation-delay: calc(.14s * var(--i) + .2s);
-}
-
-/* 11.6 Motion opt-out ---------------------------------------------------- */
-/* Every plate reads correctly frozen: the final state is the message. */
-
+/* 11.1 Motion opt-out: the drawings simply stay settled (main.js does not
+   run them), and the availability beacon stops pulsing. */
 @media (prefers-reduced-motion: reduce) {
-  .plate *,
-  .beacon::after {
-    animation: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    stroke-dashoffset: 0 !important;
-  }
-  .plate .p-frame path { opacity: .45 !important; }
-  .plate .ho-pages .sheet-3 { opacity: .35 !important; }
-  .plate .ho-pages .sheet-2 { opacity: .6 !important; }
+  .beacon::after { animation: none; }
+  .has-js .exhibit-text { opacity: 1; transform: none; transition: none; }
 }
 
 /* --- 12. Footer ---------------------------------------------------------- */

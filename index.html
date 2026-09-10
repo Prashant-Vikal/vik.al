@@ -210,289 +210,329 @@
       <span class="label label-count">Five systems</span>
     </div>
 
-    <div class="systems">
+    <ol class="register">
+      <li>
+        <a href="#vikschema-studio">
+          <span class="reg-num">01</span>
+          <span class="reg-name">VikSchema Studio</span>
+          <span class="reg-meta"><span class="reg-cat">Methodology</span><span class="reg-status">Framework</span></span>
+          <span class="reg-go" aria-hidden="true">↓</span>
+        </a>
+      </li>
+      <li>
+        <a href="#throughline">
+          <span class="reg-num">02</span>
+          <span class="reg-name">Throughline</span>
+          <span class="reg-meta"><span class="reg-cat">Decision quality</span><span class="reg-status"></span></span>
+          <span class="reg-go" aria-hidden="true">↓</span>
+        </a>
+      </li>
+      <li>
+        <a href="#handsoff">
+          <span class="reg-num">03</span>
+          <span class="reg-name">Handsoff</span>
+          <span class="reg-meta"><span class="reg-cat">Tooling</span><span class="reg-status"></span></span>
+          <span class="reg-go" aria-hidden="true">↓</span>
+        </a>
+      </li>
+      <li>
+        <a href="#viksense">
+          <span class="reg-num">04</span>
+          <span class="reg-name">VikSense</span>
+          <span class="reg-meta"><span class="reg-cat">Enablement</span><span class="reg-status"></span></span>
+          <span class="reg-go" aria-hidden="true">↓</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ai-facilitated-design-review">
+          <span class="reg-num">05</span>
+          <span class="reg-name">AI-Facilitated Design Review</span>
+          <span class="reg-meta"><span class="reg-cat">Protocol</span><span class="reg-status is-wip">In progress</span></span>
+          <span class="reg-go" aria-hidden="true">↓</span>
+        </a>
+      </li>
+    </ol>
 
-      <!-- 01 VikSchema Studio ................................... -->
-      <article class="system">
-        <div class="sys-body">
-          <p class="sys-meta">
-            <span class="sys-num">01</span>
-            <span class="sys-cat">Methodology</span>
-            <span class="sys-status">Framework</span>
+    <div class="exhibits">
+
+      <!-- 01 VikSchema Studio .................................... -->
+      <article class="exhibit" id="vikschema-studio" aria-labelledby="vikschema-studio-name">
+        <div class="exhibit-text">
+          <p class="ex-meta">
+            <span class="ex-num">01</span>
+            <span class="ex-cat">Methodology</span>
+            <span class="ex-status">Framework</span>
           </p>
-          <h3 class="sys-name">VikSchema Studio</h3>
-          <p class="sys-desc">
-            A way to build design systems organized by responsibility, not complexity, so they
-            scale without fragmenting as products and teams grow.
-          </p>
+          <h3 class="ex-name" id="vikschema-studio-name">VikSchema Studio</h3>
+          <p class="ex-desc">A way to build design systems organized by responsibility, not complexity, so they scale without fragmenting as products and teams grow.</p>
         </div>
 
-        <figure class="plate" data-plate="schema">
-          <svg viewBox="0 0 400 268" role="img"
-               aria-label="Illustrated animation: six labeled responsibility layers drop into a stack on a stable base, then the top layer adapts.">
-            <g class="p-frame" aria-hidden="true">
-              <path d="M8 20V8h12M380 8h12v12M392 248v12h-12M20 260H8v-12"/>
+        <figure class="exhibit-figure">
+          <svg viewBox="0 0 720 480" role="img" aria-label="Interface parts of every size, scattered and overlapping, settle into rows grouped by the role each one plays rather than by its size.">
+            <defs><pattern id="grid-1" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24"/></pattern></defs>
+            <rect class="x-grid" width="720" height="480" style="fill:url(#grid-1)"/>
+            <g class="x-reg"><path d="M16 24h16M24 16v16"/><path d="M688 24h16M696 16v16"/><path d="M688 456h16M696 448v16"/><path d="M16 456h16M24 448v16"/></g>
+            <g class="x-structure">
+              <rect class="sx-fill" x="66" y="72" width="4" height="48"/>
+              <path class="sx-faint" d="M66 132H652"/>
+              <rect class="sx-fill" x="66" y="144" width="4" height="48"/>
+              <path class="sx-faint" d="M66 204H652"/>
+              <rect class="sx-fill" x="66" y="216" width="4" height="48"/>
+              <path class="sx-faint" d="M66 276H652"/>
+              <rect class="sx-fill" x="66" y="288" width="4" height="48"/>
+              <path class="sx-faint" d="M66 348H652"/>
+              <rect class="sx-fill" x="66" y="360" width="4" height="48"/>
+              <path class="sx-faint" d="M66 420H652"/>
             </g>
-            <!-- base -->
-            <g class="schema-base">
-              <rect x="56" y="234" width="288" height="9" rx="2"/>
-              <path d="M56 250h288" class="hatch"/>
-            </g>
-            <!-- six responsibility layers, bottom to top -->
-            <g class="schema-stack">
-              <g class="layer" style="--i:0"><rect x="66" y="204" width="268" height="24" rx="3"/><text x="80" y="220">tokens</text></g>
-              <g class="layer" style="--i:1"><rect x="66" y="176" width="268" height="24" rx="3"/><text x="80" y="192">elements</text></g>
-              <g class="layer" style="--i:2"><rect x="66" y="148" width="268" height="24" rx="3"/><text x="80" y="164">patterns</text></g>
-              <g class="layer" style="--i:3"><rect x="66" y="120" width="268" height="24" rx="3"/><text x="80" y="136">components</text></g>
-              <g class="layer" style="--i:4"><rect x="66" y="92" width="268" height="24" rx="3"/><text x="80" y="108">flows</text></g>
-              <g class="layer layer-top" style="--i:5"><rect x="66" y="64" width="268" height="24" rx="3"/><text x="80" y="80">surfaces</text></g>
+            <g class="x-parts">
+              <g class="part" data-t="258.5 176.5 26.7 1.00 0.49 0.19" data-o="156 96"><rect x="96" y="72" width="120" height="48" rx="3"/><path class="k" d="M104 113h104"/></g>
+              <g class="part" data-t="38.4 267.7 -6.1 1.03 0.82 0.06" data-o="312 96"><rect x="240" y="72" width="144" height="48" rx="3"/><path class="k" d="M248 113h128"/></g>
+              <g class="part" data-t="-141.5 96.8 6.3 0.88 0.78 0.20" data-o="444 96"><rect x="408" y="84" width="72" height="24" rx="3"/><path class="k" d="M416 101h56"/></g>
+              <g class="part" data-t="-30.8 240.8 -13.9 1.02 0.59 0.02" data-o="552 96"><rect x="504" y="72" width="96" height="48" rx="3"/><path class="k" d="M512 113h80"/></g>
+              <g class="part" data-t="344.6 13.3 4.1 1.01 0.92 0.05" data-o="144 168"><rect class="solid" x="96" y="156" width="96" height="24" rx="12"/></g>
+              <g class="part" data-t="7.4 -98.9 -32.2 1.08 0.72 0.18" data-o="300 168"><rect class="solid" x="216" y="144" width="168" height="48" rx="24"/></g>
+              <g class="part" data-t="45.3 -76 11 0.86 0.69 0.22" data-o="444 168"><rect class="solid" x="408" y="144" width="72" height="48" rx="24"/></g>
+              <g class="part" data-t="-232.2 15.5 -34.3 1.05 0.68 0.27" data-o="576 168"><rect class="solid" x="504" y="156" width="144" height="24" rx="12"/></g>
+              <g class="part" data-t="135.7 123.3 -25.8 0.88 0.80 0.22" data-o="144 240"><rect x="96" y="216" width="96" height="48" rx="3"/><circle class="dot" cx="108" cy="240" r="4"/></g>
+              <g class="part" data-t="49.5 167.9 26.8 1.02 0.68 0.32" data-o="240 240"><rect x="216" y="228" width="48" height="24" rx="3"/><circle class="dot" cx="228" cy="240" r="4"/></g>
+              <g class="part" data-t="-92.2 5.6 -37.3 1.09 0.62 0.14" data-o="360 240"><rect x="288" y="228" width="144" height="24" rx="3"/><circle class="dot" cx="300" cy="240" r="4"/></g>
+              <g class="part" data-t="21.2 17.1 1.1 0.88 0.76 0.22" data-o="480 240"><rect x="456" y="228" width="48" height="24" rx="3"/><circle class="dot" cx="468" cy="240" r="4"/></g>
+              <g class="part" data-t="-178.5 37.3 5.6 0.98 0.50 0.23" data-o="588 240"><rect x="528" y="216" width="120" height="48" rx="3"/><circle class="dot" cx="540" cy="240" r="4"/></g>
+              <g class="part" data-t="293.1 -203.4 -27.5 1.02 0.98 0.12" data-o="168 312"><rect x="96" y="288" width="144" height="48" rx="3"/><rect class="solid" x="96" y="288" width="5" height="48" rx="1"/></g>
+              <g class="part" data-t="112.6 -12.9 -32.6 0.93 0.82 0.17" data-o="360 312"><rect x="264" y="300" width="192" height="24" rx="3"/><rect class="solid" x="264" y="300" width="5" height="24" rx="1"/></g>
+              <g class="part" data-t="-87.3 -143.1 -31 1.00 0.66 0.06" data-o="552 312"><rect x="480" y="300" width="144" height="24" rx="3"/><rect class="solid" x="480" y="300" width="5" height="24" rx="1"/></g>
+              <g class="part" data-t="294.3 -322.2 -5.1 1.08 0.76 0.25" data-o="180 384"><rect x="96" y="360" width="168" height="48" rx="3"/><path class="k" d="M106 380h100.8M106 388h63.8"/></g>
+              <g class="part" data-t="-1.9 -147.4 -25.6 1.07 0.49 0.03" data-o="360 384"><rect x="288" y="372" width="144" height="24" rx="3"/><path class="k" d="M298 380h86.4M298 388h54.7"/></g>
+              <g class="part" data-t="-103.9 -23.5 31.8 1.12 0.48 0.06" data-o="552 384"><rect x="456" y="360" width="192" height="48" rx="3"/><path class="k" d="M466 380h115.2M466 388h73"/></g>
             </g>
           </svg>
-          <figcaption>responsibility layers</figcaption>
         </figure>
       </article>
 
-      <!-- 02 Throughline ....................................... -->
-      <article class="system">
-        <div class="sys-body">
-          <p class="sys-meta">
-            <span class="sys-num">02</span>
-            <span class="sys-cat">Decision quality</span>
+      <!-- 02 Throughline ......................................... -->
+      <article class="exhibit" id="throughline" aria-labelledby="throughline-name">
+        <div class="exhibit-text">
+          <p class="ex-meta">
+            <span class="ex-num">02</span>
+            <span class="ex-cat">Decision quality</span>
           </p>
-          <h3 class="sys-name">Throughline</h3>
-          <p class="sys-desc">
-            A hiring evaluation system that makes the reasoning behind every decision visible
-            and keeps the final call human. It computes and recommends. It never auto-decides.
-          </p>
+          <h3 class="ex-name" id="throughline-name">Throughline</h3>
+          <p class="ex-desc">A hiring evaluation system that makes the reasoning behind every decision visible and keeps the final call human. It computes and recommends. It never auto-decides.</p>
         </div>
 
-        <figure class="plate" data-plate="throughline">
-          <svg viewBox="0 0 400 268" role="img"
-               aria-label="Illustrated animation: a scorecard fills with ratings, a recommendation appears, then a human stamp presses Approve.">
-            <g class="p-frame" aria-hidden="true">
-              <path d="M8 20V8h12M380 8h12v12M392 248v12h-12M20 260H8v-12"/>
+        <figure class="exhibit-figure">
+          <svg viewBox="0 0 720 480" role="img" aria-label="A tangled line pulls taut into a single thread that passes through each piece of evidence and stops just short of a final gate left for a person.">
+            <defs><pattern id="grid-2" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24"/></pattern></defs>
+            <rect class="x-grid" width="720" height="480" style="fill:url(#grid-2)"/>
+            <g class="x-reg"><path d="M16 24h16M24 16v16"/><path d="M688 24h16M696 16v16"/><path d="M688 456h16M696 448v16"/><path d="M16 456h16M24 448v16"/></g>
+            <g class="x-structure">
+              <path class="sx" d="M588 229v22"/>
             </g>
-
-            <!-- scorecard -->
-            <g class="tl-card">
-              <rect x="34" y="52" width="176" height="164" rx="4"/>
-              <path d="M34 76h176" class="hair"/>
-              <rect class="card-tab" x="46" y="60" width="34" height="8" rx="4"/>
-            </g>
-            <g class="tl-rows">
-              <g class="tl-row" style="--i:0">
-                <path class="hair-line" d="M48 98h48"/>
-                <g class="dots"><circle cx="130" cy="94" r="4.2"/><circle cx="146" cy="94" r="4.2"/><circle cx="162" cy="94" r="4.2"/><circle cx="178" cy="94" r="4.2"/><circle class="off" cx="194" cy="94" r="4.2"/></g>
-              </g>
-              <g class="tl-row" style="--i:1">
-                <path class="hair-line" d="M48 128h58"/>
-                <g class="dots"><circle cx="130" cy="124" r="4.2"/><circle cx="146" cy="124" r="4.2"/><circle cx="162" cy="124" r="4.2"/><circle class="off" cx="178" cy="124" r="4.2"/><circle class="off" cx="194" cy="124" r="4.2"/></g>
-              </g>
-              <g class="tl-row" style="--i:2">
-                <path class="hair-line" d="M48 158h42"/>
-                <g class="dots"><circle cx="130" cy="154" r="4.2"/><circle cx="146" cy="154" r="4.2"/><circle cx="162" cy="154" r="4.2"/><circle cx="178" cy="154" r="4.2"/><circle cx="194" cy="154" r="4.2"/></g>
-              </g>
-              <g class="tl-row" style="--i:3">
-                <path class="hair-line" d="M48 188h54"/>
-                <g class="dots"><circle cx="130" cy="184" r="4.2"/><circle cx="146" cy="184" r="4.2"/><circle cx="162" cy="184" r="4.2"/><circle cx="178" cy="184" r="4.2"/><circle class="off" cx="194" cy="184" r="4.2"/></g>
-              </g>
-            </g>
-
-            <path class="flow-line" d="M218 118h26" pathLength="1"/>
-
-            <!-- machine recommendation -->
-            <g class="tl-rec">
-              <rect x="252" y="92" width="112" height="30" rx="15"/>
-              <text x="308" y="112">RECOMMENDS</text>
-            </g>
-
-            <!-- human gate -->
-            <g class="tl-stamp">
-              <rect x="256" y="150" width="104" height="44" rx="4"/>
-              <text x="308" y="178">APPROVED</text>
+            <g class="x-parts">
+              <polyline class="thread" points="72,240 76.7,240 81.5,240 86.2,240 90.9,240 95.7,240 100.4,240 105.1,240 109.9,240 114.6,240 119.3,240 124.1,240 128.8,240 133.5,240 138.3,240 143,240 147.7,240 152.5,240 157.2,240 161.9,240 166.7,240 171.4,240 176.1,240 180.9,240 185.6,240 190.3,240 195.1,240 199.8,240 204.6,240 209.3,240 214,240 218.8,240 223.5,240 228.2,240 233,240 237.7,240 242.4,240 247.2,240 251.9,240 256.6,240 261.4,240 266.1,240 270.8,240 275.6,240 280.3,240 285,240 289.8,240 294.5,240 299.2,240 304,240 308.7,240 313.4,240 318.2,240 322.9,240 327.6,240 332.4,240 337.1,240 341.8,240 346.6,240 351.3,240 356,240 360.8,240 365.5,240 370.2,240 375,240 379.7,240 384.4,240 389.2,240 393.9,240 398.6,240 403.4,240 408.1,240 412.8,240 417.6,240 422.3,240 427,240 431.8,240 436.5,240 441.2,240 446,240 450.7,240 455.4,240 460.2,240 464.9,240 469.7,240 474.4,240 479.1,240 483.9,240 488.6,240 493.3,240 498.1,240 502.8,240 507.5,240 512.3,240 517,240 521.7,240 526.5,240 531.2,240 535.9,240 540.7,240 545.4,240 550.1,240 554.9,240 559.6,240 564.3,240 569.1,240 573.8,240 578.5,240 583.3,240 588,240" data-p="253,291.2 253.5,309.9 249,325.4 239.9,336.5 226.7,342.2 210.1,341.8 190.9,335 170.1,322.1 148.7,303.4 127.7,280 108.2,253.2 91.2,224.7 77.5,196.3 67.8,169.8 62.7,147 62.5,129.4 67.3,118.3 77.2,114.5 91.7,118.3 110.4,129.5 132.7,147.3 157.6,170.7 184.3,198.1 211.8,227.7 238.9,257.7 264.7,285.9 288.2,310.8 308.5,330.8 324.8,344.8 336.7,352.1 343.6,352.4 345.5,346 342.4,333.6 334.6,316.2 322.4,295.2 306.7,272 288.1,248.1 267.7,225.2 246.3,204.5 225.1,187.2 205.1,174.1 187.3,165.7 172.6,162.1 161.7,163.4 155.3,169 153.7,178.3 157.1,190.5 165.6,204.7 178.9,220.1 196.5,235.6 217.8,250.6 242.1,264.2 268.5,275.8 295.8,285 323.1,291.5 349.4,295 373.6,295.5 394.9,292.9 412.4,287.5 425.5,279.4 433.9,269 437.2,256.8 435.4,243.2 428.9,228.9 417.9,214.5 403.1,200.9 385.2,188.7 365.1,178.9 343.9,172.1 322.6,169 302.2,170 283.7,175.3 268,185.1 256,199 248.3,216.4 245.3,236.5 247.3,258.2 254.4,280.2 266.4,301.2 282.9,319.5 303.3,334 326.8,343.4 352.7,346.8 379.8,343.8 407.3,334.1 433.9,318.3 458.8,296.9 481,271.3 499.6,243 514,213.7 523.7,185.4 528.4,159.8 528.1,138.7 522.8,123.6 513,115.4 499.2,114.7 482.1,121.6 462.5,135.6 441.5,155.8 420.1,180.9 399.4,209.2 380.2,238.7 363.7,267.8 350.6,294.4 341.6,316.9 337.3,334.2 337.9,345.2 343.6,349.5 354.3,347.1 369.5,338.5"/>
+              <polyline class="thread sx-thread" points="72,240 76.7,240 81.5,240 86.2,240 90.9,240 95.7,240 100.4,240 105.1,240 109.9,240 114.6,240 119.3,240 124.1,240 128.8,240 133.5,240 138.3,240 143,240 147.7,240 152.5,240 157.2,240 161.9,240 166.7,240 171.4,240 176.1,240 180.9,240 185.6,240 190.3,240 195.1,240 199.8,240 204.6,240 209.3,240 214,240 218.8,240 223.5,240 228.2,240 233,240 237.7,240 242.4,240 247.2,240 251.9,240 256.6,240 261.4,240 266.1,240 270.8,240 275.6,240 280.3,240 285,240 289.8,240 294.5,240 299.2,240 304,240 308.7,240 313.4,240 318.2,240 322.9,240 327.6,240 332.4,240 337.1,240 341.8,240 346.6,240 351.3,240 356,240 360.8,240 365.5,240 370.2,240 375,240 379.7,240 384.4,240 389.2,240 393.9,240 398.6,240 403.4,240 408.1,240 412.8,240 417.6,240 422.3,240 427,240 431.8,240 436.5,240 441.2,240 446,240 450.7,240 455.4,240 460.2,240 464.9,240 469.7,240 474.4,240 479.1,240 483.9,240 488.6,240 493.3,240 498.1,240 502.8,240 507.5,240 512.3,240 517,240 521.7,240 526.5,240 531.2,240 535.9,240 540.7,240 545.4,240 550.1,240 554.9,240 559.6,240 564.3,240 569.1,240 573.8,240 578.5,240 583.3,240 588,240" data-p="253,291.2 253.5,309.9 249,325.4 239.9,336.5 226.7,342.2 210.1,341.8 190.9,335 170.1,322.1 148.7,303.4 127.7,280 108.2,253.2 91.2,224.7 77.5,196.3 67.8,169.8 62.7,147 62.5,129.4 67.3,118.3 77.2,114.5 91.7,118.3 110.4,129.5 132.7,147.3 157.6,170.7 184.3,198.1 211.8,227.7 238.9,257.7 264.7,285.9 288.2,310.8 308.5,330.8 324.8,344.8 336.7,352.1 343.6,352.4 345.5,346 342.4,333.6 334.6,316.2 322.4,295.2 306.7,272 288.1,248.1 267.7,225.2 246.3,204.5 225.1,187.2 205.1,174.1 187.3,165.7 172.6,162.1 161.7,163.4 155.3,169 153.7,178.3 157.1,190.5 165.6,204.7 178.9,220.1 196.5,235.6 217.8,250.6 242.1,264.2 268.5,275.8 295.8,285 323.1,291.5 349.4,295 373.6,295.5 394.9,292.9 412.4,287.5 425.5,279.4 433.9,269 437.2,256.8 435.4,243.2 428.9,228.9 417.9,214.5 403.1,200.9 385.2,188.7 365.1,178.9 343.9,172.1 322.6,169 302.2,170 283.7,175.3 268,185.1 256,199 248.3,216.4 245.3,236.5 247.3,258.2 254.4,280.2 266.4,301.2 282.9,319.5 303.3,334 326.8,343.4 352.7,346.8 379.8,343.8 407.3,334.1 433.9,318.3 458.8,296.9 481,271.3 499.6,243 514,213.7 523.7,185.4 528.4,159.8 528.1,138.7 522.8,123.6 513,115.4 499.2,114.7 482.1,121.6 462.5,135.6 441.5,155.8 420.1,180.9 399.4,209.2 380.2,238.7 363.7,267.8 350.6,294.4 341.6,316.9 337.3,334.2 337.9,345.2 343.6,349.5 354.3,347.1 369.5,338.5"/>
+              <g class="part" data-t="-24.9 -80.1 13.2 0.89 0.65 0.06" data-o="144 162"><path d="M144 184V233"/><rect x="102" y="140" width="84" height="44" rx="3"/><path class="k" d="M114 154h50M114 164h36"/><rect class="solid" x="114" y="172" width="58" height="4" rx="2"/></g>
+              <g class="part" data-t="101.4 47.1 32.6 0.80 0.82 0.06" data-o="240 318"><path d="M240 247V296"/><rect x="198" y="296" width="84" height="44" rx="3"/><path class="k" d="M210 310h50M210 320h36"/><rect class="solid" x="210" y="328" width="34" height="4" rx="2"/></g>
+              <g class="part" data-t="-220.3 213.3 33.9 0.93 0.83 0.02" data-o="336 162"><path d="M336 184V233"/><rect x="294" y="140" width="84" height="44" rx="3"/><path class="k" d="M306 154h50M306 164h36"/><rect class="solid" x="306" y="172" width="66" height="4" rx="2"/></g>
+              <g class="part" data-t="-122.2 -48.3 48.6 0.86 0.88 0.07" data-o="432 318"><path d="M432 247V296"/><rect x="390" y="296" width="84" height="44" rx="3"/><path class="k" d="M402 310h50M402 320h36"/><rect class="solid" x="402" y="328" width="46" height="4" rx="2"/></g>
+              <g class="part" data-t="-356.9 148.6 -34.3 1.00 0.67 0.15" data-o="528 162"><path d="M528 184V233"/><rect x="486" y="140" width="84" height="44" rx="3"/><path class="k" d="M498 154h50M498 164h36"/><rect class="solid" x="498" y="172" width="52" height="4" rx="2"/></g>
+              <circle class="node" cx="144" cy="240" r="6" data-t="409.6 79.5 0 1.00 1.00 0.27" data-o="144 240"/>
+              <circle class="node" cx="240" cy="240" r="6" data-t="297.4 43.7 0 1.00 1.00 0.24" data-o="240 240"/>
+              <circle class="node" cx="336" cy="240" r="6" data-t="101.2 -84.8 0 1.00 1.00 0.09" data-o="336 240"/>
+              <circle class="node" cx="432" cy="240" r="6" data-t="-88.5 118.7 0 1.00 1.00 0.29" data-o="432 240"/>
+              <circle class="node" cx="528" cy="240" r="6" data-t="-41.2 43.6 0 1.00 1.00 0.10" data-o="528 240"/>
+              <g class="gate"><circle class="gate-ring" cx="624" cy="240" r="22"/><circle class="gate-core" cx="624" cy="240" r="4.5"/></g>
             </g>
           </svg>
-          <figcaption>compute · then human</figcaption>
         </figure>
       </article>
 
-      <!-- 03 Handsoff .......................................... -->
-      <article class="system">
-        <div class="sys-body">
-          <p class="sys-meta">
-            <span class="sys-num">03</span>
-            <span class="sys-cat">Tooling</span>
+      <!-- 03 Handsoff ............................................ -->
+      <article class="exhibit" id="handsoff" aria-labelledby="handsoff-name">
+        <div class="exhibit-text">
+          <p class="ex-meta">
+            <span class="ex-num">03</span>
+            <span class="ex-cat">Tooling</span>
           </p>
-          <h3 class="sys-name">Handsoff</h3>
-          <p class="sys-desc">
-            A Figma plugin that generates component documentation from the components
-            themselves, so a growing system stays trustworthy instead of drifting out of date.
-          </p>
+          <h3 class="ex-name" id="handsoff-name">Handsoff</h3>
+          <p class="ex-desc">A Figma plugin that generates component documentation from the components themselves, so a growing system stays trustworthy instead of drifting out of date.</p>
         </div>
 
-        <figure class="plate" data-plate="handsoff">
-          <svg viewBox="0 0 400 268" role="img"
-               aria-label="Illustrated animation: a scan line reads a component and documentation lines write themselves onto stacked pages.">
-            <g class="p-frame" aria-hidden="true">
-              <path d="M8 20V8h12M380 8h12v12M392 248v12h-12M20 260H8v-12"/>
+        <figure class="exhibit-figure">
+          <svg viewBox="0 0 720 480" role="img" aria-label="Documentation that has drifted out of line with its components snaps back into register, each entry tied to the component it came from.">
+            <defs><pattern id="grid-3" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24"/></pattern></defs>
+            <rect class="x-grid" width="720" height="480" style="fill:url(#grid-3)"/>
+            <g class="x-reg"><path d="M16 24h16M24 16v16"/><path d="M688 24h16M696 16v16"/><path d="M688 456h16M696 448v16"/><path d="M16 456h16M24 448v16"/></g>
+            <g class="x-structure">
+              <path class="sx-faint" d="M408 52V428"/>
+              <path class="sx leader" d="M206 96H408" pathLength="1"/>
+              <circle class="sx-fill" cx="206" cy="96" r="3"/>
+              <path class="sx leader" d="M278 168H408" pathLength="1"/>
+              <circle class="sx-fill" cx="278" cy="168" r="3"/>
+              <path class="sx leader" d="M242 240H408" pathLength="1"/>
+              <circle class="sx-fill" cx="242" cy="240" r="3"/>
+              <path class="sx leader" d="M254 312H408" pathLength="1"/>
+              <circle class="sx-fill" cx="254" cy="312" r="3"/>
+              <path class="sx leader" d="M278 384H408" pathLength="1"/>
+              <circle class="sx-fill" cx="278" cy="384" r="3"/>
             </g>
-
-            <!-- the component being read -->
-            <g class="ho-component">
-              <rect x="34" y="74" width="146" height="122" rx="4"/>
-              <rect class="solid" x="50" y="92" width="60" height="10" rx="2"/>
-              <rect x="50" y="114" width="114" height="26" rx="3"/>
-              <rect x="50" y="150" width="52" height="26" rx="3"/>
-              <rect x="112" y="150" width="52" height="26" rx="3"/>
-            </g>
-            <g class="ho-ticks" aria-hidden="true">
-              <path d="M34 66v-8M180 66v-8M26 74h-8M26 196h-8"/>
-            </g>
-            <g class="ho-scan"><path d="M26 62v146"/></g>
-
-            <path class="flow-line" d="M192 134h26" pathLength="1"/>
-
-            <!-- the pages that write themselves -->
-            <g class="ho-pages">
-              <rect class="sheet sheet-3" x="228" y="58" width="128" height="152" rx="4"/>
-              <rect class="sheet sheet-2" x="234" y="64" width="128" height="152" rx="4"/>
-              <rect class="sheet sheet-1" x="240" y="70" width="128" height="152" rx="4"/>
-            </g>
-            <g class="ho-lines">
-              <path class="solid-line" style="--i:0" d="M256 96h56" pathLength="1"/>
-              <path style="--i:1" d="M256 118h84" pathLength="1"/>
-              <path style="--i:2" d="M256 134h68" pathLength="1"/>
-              <path style="--i:3" d="M256 150h80" pathLength="1"/>
-              <path style="--i:4" d="M256 166h50" pathLength="1"/>
-              <path style="--i:5" d="M256 182h74" pathLength="1"/>
-              <path style="--i:6" d="M256 198h40" pathLength="1"/>
+            <g class="x-parts">
+              <g class="src"><rect x="72" y="80" width="120" height="32" rx="16"/><path class="k" d="M100 96h64"/></g>
+              <g class="part doc" data-t="38.8 51.7 -7.6 1.01 0.29 0.18" data-o="530 96"><rect class="solid" x="424" y="78" width="96" height="8" rx="2"/><path class="k" d="M424 99h212M424 112h148"/></g>
+              <g class="src"><rect x="72" y="148" width="192" height="40" rx="4"/><path class="k" d="M86 168h92"/><path d="M190 158v20"/></g>
+              <g class="part doc" data-t="21.2 47.7 2.2 0.98 0.47 0.24" data-o="512 168"><rect class="solid" x="424" y="150" width="72" height="8" rx="2"/><path class="k" d="M424 171h176M424 184h188"/></g>
+              <g class="src"><rect x="72" y="228" width="52" height="24" rx="12"/><circle class="dot" cx="112" cy="240" r="8"/><path class="k" d="M140 240h88"/></g>
+              <g class="part doc" data-t="23.6 25.4 6.8 1.02 0.63 0.07" data-o="538 240"><rect class="solid" x="424" y="222" width="112" height="8" rx="2"/><path class="k" d="M424 243h228M424 256h120"/></g>
+              <g class="src"><rect x="72" y="288" width="168" height="48" rx="4"/><rect class="solid" x="80" y="296" width="32" height="32" rx="2"/><path class="k" d="M124 306h92M124 318h64"/></g>
+              <g class="part doc" data-t="43.2 26.2 -6.3 0.98 0.27 0.20" data-o="522 312"><rect class="solid" x="424" y="294" width="88" height="8" rx="2"/><path class="k" d="M424 315h196M424 328h164"/></g>
+              <g class="src"><rect x="72" y="368" width="192" height="32" rx="4"/><path d="M136 368v32M200 368v32"/><rect class="solid" x="80" y="394" width="48" height="3" rx="1.5"/></g>
+              <g class="part doc" data-t="27.9 26.4 -3 1.00 0.41 0.17" data-o="504 384"><rect class="solid" x="424" y="366" width="64" height="8" rx="2"/><path class="k" d="M424 387h160M424 400h132"/></g>
             </g>
           </svg>
-          <figcaption>component · to docs</figcaption>
         </figure>
       </article>
 
-      <!-- 04 VikSense .......................................... -->
-      <article class="system">
-        <div class="sys-body">
-          <p class="sys-meta">
-            <span class="sys-num">04</span>
-            <span class="sys-cat">Enablement</span>
+      <!-- 04 VikSense ............................................ -->
+      <article class="exhibit" id="viksense" aria-labelledby="viksense-name">
+        <div class="exhibit-text">
+          <p class="ex-meta">
+            <span class="ex-num">04</span>
+            <span class="ex-cat">Enablement</span>
           </p>
-          <h3 class="sys-name">VikSense</h3>
-          <p class="sys-desc">
-            A custom GPT that converts a design organization's tacit knowledge into an
-            automated onboarding and first-pass review agent. It eliminates the scaling
-            bottleneck of expertise trapped in senior leaders' heads.
-          </p>
+          <h3 class="ex-name" id="viksense-name">VikSense</h3>
+          <p class="ex-desc">A custom GPT that converts a design organization's tacit knowledge into an automated onboarding and first-pass review agent. It eliminates the scaling bottleneck of expertise trapped in senior leaders' heads.</p>
         </div>
 
-        <figure class="plate" data-plate="viksense">
-          <svg viewBox="0 0 400 268" role="img"
-               aria-label="Illustrated animation: scattered knowledge scraps converge into a core that emits onboarding, tutorials, and review cards.">
-            <g class="p-frame" aria-hidden="true">
-              <path d="M8 20V8h12M380 8h12v12M392 248v12h-12M20 260H8v-12"/>
+        <figure class="exhibit-figure">
+          <svg viewBox="0 0 720 480" role="img" aria-label="Lanes that all funnel into one narrow point, with work piled up behind it, open into parallel lanes where everything moves at once.">
+            <defs><pattern id="grid-4" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24"/></pattern></defs>
+            <rect class="x-grid" width="720" height="480" style="fill:url(#grid-4)"/>
+            <g class="x-reg"><path d="M16 24h16M24 16v16"/><path d="M688 24h16M696 16v16"/><path d="M688 456h16M696 448v16"/><path d="M16 456h16M24 448v16"/></g>
+            <g class="x-structure">
             </g>
-
-            <!-- tacit knowledge, scattered -->
-            <!-- Each scrap travels to the core at (194, 114). -->
-            <g class="vs-scraps">
-              <rect style="--i:0; --dx:153px; --dy:43.5px"  x="26" y="66"  width="30" height="9" rx="2"/>
-              <rect style="--i:1; --dx:164px; --dy:-2.5px"  x="18" y="112" width="24" height="9" rx="2"/>
-              <rect style="--i:2; --dx:143px; --dy:-60.5px" x="34" y="170" width="34" height="9" rx="2"/>
-              <rect style="--i:3; --dx:113px; --dy:59.5px"  x="70" y="50"  width="22" height="9" rx="2"/>
-              <rect style="--i:4; --dx:108px; --dy:-82.5px" x="72" y="192" width="28" height="9" rx="2"/>
-              <rect style="--i:5; --dx:138px; --dy:-26.5px" x="46" y="136" width="20" height="9" rx="2"/>
-              <rect style="--i:6; --dx:121px; --dy:17.5px"  x="60" y="92"  width="26" height="9" rx="2"/>
-            </g>
-
-            <!-- the core -->
-            <g class="vs-core">
-              <path class="core-ring" d="M170 100l24-14 24 14v28l-24 14-24-14z"/>
-              <circle class="core-dot" cx="194" cy="114" r="6"/>
-            </g>
-
-            <!-- emitted outputs -->
-            <g class="vs-outs">
-              <g class="out" style="--i:0">
-                <path class="flow-line" d="M220 114h16V71h16" pathLength="1"/>
-                <rect x="252" y="52" width="116" height="38" rx="4"/>
-                <text x="310" y="76">Onboarding</text>
-              </g>
-              <g class="out" style="--i:1">
-                <path class="flow-line" d="M220 114h16v9h16" pathLength="1"/>
-                <rect x="252" y="104" width="116" height="38" rx="4"/>
-                <text x="310" y="128">Tutorials</text>
-              </g>
-              <g class="out" style="--i:2">
-                <path class="flow-line" d="M220 114h16v61h16" pathLength="1"/>
-                <rect x="252" y="156" width="116" height="38" rx="4"/>
-                <text x="310" y="180">Review</text>
-              </g>
+            <g class="x-parts">
+              <line class="lane" x1="96" y1="72" x2="648" y2="72" data-l="96 52 576 246"/>
+              <line class="lane" x1="96" y1="144" x2="648" y2="144" data-l="96 132 576 248.4"/>
+              <line class="lane" x1="96" y1="216" x2="648" y2="216" data-l="96 212 576 250.8"/>
+              <line class="lane" x1="96" y1="288" x2="648" y2="288" data-l="96 292 576 253.2"/>
+              <line class="lane" x1="96" y1="360" x2="648" y2="360" data-l="96 372 576 255.6"/>
+              <line class="lane" x1="96" y1="432" x2="648" y2="432" data-l="96 452 576 258"/>
+              <circle class="dot" cx="408" cy="252" r="5" data-t="59.8 -37.3 0 1.00 1.00 0.09" data-o="408 252"/>
+              <circle class="dot" cx="496" cy="396" r="5" data-t="-55.2 -114.4 0 1.00 1.00 0.14" data-o="496 396"/>
+              <circle class="dot" cx="320" cy="324" r="5" data-t="49.1 -126.4 0 1.00 1.00 0.22" data-o="320 324"/>
+              <circle class="dot" cx="144" cy="252" r="5" data-t="411 4.6 0 1.00 1.00 0.21" data-o="144 252"/>
+              <circle class="dot" cx="540" cy="252" r="5" data-t="-141.6 21.9 0 1.00 1.00 0.14" data-o="540 252"/>
+              <circle class="dot" cx="188" cy="108" r="5" data-t="324.2 123.2 0 1.00 1.00 0.28" data-o="188 108"/>
+              <circle class="dot" cx="408" cy="396" r="5" data-t="72.6 -162.7 0 1.00 1.00 0.08" data-o="408 396"/>
+              <circle class="dot" cx="452" cy="252" r="5" data-t="10.1 -10.1 0 1.00 1.00 0.06" data-o="452 252"/>
+              <circle class="dot" cx="540" cy="396" r="5" data-t="-110.7 -165.7 0 1.00 1.00 0.11" data-o="540 396"/>
+              <circle class="dot" cx="276" cy="324" r="5" data-t="289.9 -71.6 0 1.00 1.00 0.21" data-o="276 324"/>
+              <circle class="dot" cx="144" cy="324" r="5" data-t="378.4 -88.8 0 1.00 1.00 0.27" data-o="144 324"/>
+              <circle class="dot" cx="188" cy="324" r="5" data-t="306.2 -62.9 0 1.00 1.00 0.26" data-o="188 324"/>
+              <circle class="dot" cx="584" cy="252" r="5" data-t="-60.9 0.5 0 1.00 1.00 0.12" data-o="584 252"/>
+              <circle class="dot" cx="364" cy="252" r="5" data-t="52.7 -44.2 0 1.00 1.00 0.12" data-o="364 252"/>
+              <circle class="dot" cx="320" cy="180" r="5" data-t="66.8 100.4 0 1.00 1.00 0.15" data-o="320 180"/>
+              <circle class="dot" cx="232" cy="252" r="5" data-t="122.1 28.9 0 1.00 1.00 0.17" data-o="232 252"/>
+              <circle class="dot" cx="584" cy="180" r="5" data-t="-237.3 52.4 0 1.00 1.00 0.12" data-o="584 180"/>
+              <circle class="dot" cx="276" cy="108" r="5" data-t="81.7 84.4 0 1.00 1.00 0.17" data-o="276 108"/>
+              <circle class="dot" cx="276" cy="252" r="5" data-t="247.2 13 0 1.00 1.00 0.15" data-o="276 252"/>
+              <circle class="dot" cx="496" cy="324" r="5" data-t="-5.8 -51.3 0 1.00 1.00 0.16" data-o="496 324"/>
+              <circle class="dot" cx="540" cy="324" r="5" data-t="-6.8 -82.8 0 1.00 1.00 0.11" data-o="540 324"/>
+              <circle class="dot" cx="408" cy="324" r="5" data-t="71.1 -43 0 1.00 1.00 0.09" data-o="408 324"/>
+              <circle class="dot" cx="320" cy="108" r="5" data-t="34.1 111.2 0 1.00 1.00 0.18" data-o="320 108"/>
+              <circle class="dot" cx="144" cy="180" r="5" data-t="408.9 67 0 1.00 1.00 0.27" data-o="144 180"/>
+              <circle class="dot" cx="232" cy="324" r="5" data-t="187.2 -104 0 1.00 1.00 0.23" data-o="232 324"/>
+              <circle class="dot" cx="188" cy="180" r="5" data-t="349.6 84.7 0 1.00 1.00 0.18" data-o="188 180"/>
+              <circle class="dot" cx="540" cy="108" r="5" data-t="-197.7 89.8 0 1.00 1.00 0.12" data-o="540 108"/>
+              <circle class="dot" cx="276" cy="180" r="5" data-t="125 57.2 0 1.00 1.00 0.23" data-o="276 180"/>
+              <circle class="dot" cx="276" cy="396" r="5" data-t="172.9 -155.1 0 1.00 1.00 0.20" data-o="276 396"/>
+              <circle class="dot" cx="188" cy="396" r="5" data-t="304.5 -163.5 0 1.00 1.00 0.28" data-o="188 396"/>
+              <circle class="dot" cx="452" cy="324" r="5" data-t="-84.5 -115.9 0 1.00 1.00 0.10" data-o="452 324"/>
+              <circle class="dot" cx="540" cy="180" r="5" data-t="-118 56.8 0 1.00 1.00 0.04" data-o="540 180"/>
+              <circle class="dot" cx="232" cy="396" r="5" data-t="152.8 -148.9 0 1.00 1.00 0.22" data-o="232 396"/>
+              <circle class="dot" cx="584" cy="324" r="5" data-t="-131.3 -98.1 0 1.00 1.00 0.06" data-o="584 324"/>
+              <circle class="dot" cx="452" cy="396" r="5" data-t="6.4 -185.3 0 1.00 1.00 0.10" data-o="452 396"/>
+              <circle class="dot" cx="364" cy="180" r="5" data-t="150.9 93.4 0 1.00 1.00 0.22" data-o="364 180"/>
+              <circle class="dot" cx="232" cy="108" r="5" data-t="255.5 111.7 0 1.00 1.00 0.25" data-o="232 108"/>
+              <circle class="dot" cx="144" cy="396" r="5" data-t="293.9 -190.8 0 1.00 1.00 0.26" data-o="144 396"/>
+              <circle class="dot" cx="144" cy="108" r="5" data-t="285.3 105.3 0 1.00 1.00 0.27" data-o="144 108"/>
+              <circle class="dot" cx="496" cy="252" r="5" data-t="-57.6 -35.8 0 1.00 1.00 0.10" data-o="496 252"/>
+              <circle class="dot" cx="188" cy="252" r="5" data-t="299.6 -4.5 0 1.00 1.00 0.24" data-o="188 252"/>
+              <circle class="dot" cx="320" cy="396" r="5" data-t="57.5 -173.7 0 1.00 1.00 0.23" data-o="320 396"/>
+              <circle class="dot" cx="584" cy="396" r="5" data-t="-114.7 -116 0 1.00 1.00 0.08" data-o="584 396"/>
+              <circle class="dot" cx="364" cy="108" r="5" data-t="45 144 0 1.00 1.00 0.20" data-o="364 108"/>
+              <circle class="dot" cx="364" cy="324" r="5" data-t="-2.5 0.6 0 1.00 1.00 0.17" data-o="364 324"/>
+              <circle class="dot" cx="496" cy="108" r="5" data-t="-30.4 117.6 0 1.00 1.00 0.09" data-o="496 108"/>
+              <circle class="dot" cx="320" cy="252" r="5" data-t="118.9 0.6 0 1.00 1.00 0.13" data-o="320 252"/>
+              <circle class="dot" cx="408" cy="180" r="5" data-t="3.3 48.1 0 1.00 1.00 0.19" data-o="408 180"/>
+              <circle class="dot" cx="232" cy="180" r="5" data-t="127 -3.2 0 1.00 1.00 0.22" data-o="232 180"/>
+              <circle class="dot" cx="408" cy="108" r="5" data-t="-7.2 204.2 0 1.00 1.00 0.17" data-o="408 108"/>
+              <circle class="dot" cx="364" cy="396" r="5" data-t="26.1 -162.4 0 1.00 1.00 0.11" data-o="364 396"/>
+              <circle class="dot" cx="496" cy="180" r="5" data-t="108 72 0 1.00 1.00 0.10" data-o="496 180"/>
+              <circle class="dot" cx="452" cy="180" r="5" data-t="178 72 0 1.00 1.00 0.11" data-o="452 180"/>
+              <circle class="dot" cx="452" cy="108" r="5" data-t="204 144 0 1.00 1.00 0.06" data-o="452 108"/>
+              <circle class="dot" cx="584" cy="108" r="5" data-t="98 144 0 1.00 1.00 0.10" data-o="584 108"/>
             </g>
           </svg>
-          <figcaption>knowledge · to outputs</figcaption>
         </figure>
       </article>
 
-      <!-- 05 AI-Facilitated Design Review ....................... -->
-      <article class="system">
-        <div class="sys-body">
-          <p class="sys-meta">
-            <span class="sys-num">05</span>
-            <span class="sys-cat">Protocol</span>
-            <span class="sys-status sys-status-wip">In progress</span>
+      <!-- 05 AI-Facilitated Design Review ........................ -->
+      <article class="exhibit" id="ai-facilitated-design-review" aria-labelledby="ai-facilitated-design-review-name">
+        <div class="exhibit-text">
+          <p class="ex-meta">
+            <span class="ex-num">05</span>
+            <span class="ex-cat">Protocol</span>
+            <span class="ex-status is-wip">In progress</span>
           </p>
-          <h3 class="sys-name">AI-Facilitated Design Review</h3>
-          <p class="sys-desc">
-            Design reviews fail because they run on opinion. A protocol that converts feedback
-            into evidence, with AI as facilitator rather than judge.
-          </p>
+          <h3 class="ex-name" id="ai-facilitated-design-review-name">AI-Facilitated Design Review</h3>
+          <p class="ex-desc">Design reviews fail because they run on opinion. A protocol that converts feedback into evidence, with AI as facilitator rather than judge.</p>
         </div>
 
-        <figure class="plate" data-plate="review">
-          <svg viewBox="0 0 400 268" role="img"
-               aria-label="Illustrated animation: a vague opinion passes through a facilitation lens and becomes a structured evidence card, with the AI beside the flow.">
-            <g class="p-frame" aria-hidden="true">
-              <path d="M8 20V8h12M380 8h12v12M392 248v12h-12M20 260H8v-12"/>
+        <figure class="exhibit-figure">
+          <svg viewBox="0 0 720 480" role="img" aria-label="Opinions pointing in every direction turn upright and line up against a shared scale, grouped by criteria, with no single mark singled out as the verdict.">
+            <defs><pattern id="grid-5" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24"/></pattern></defs>
+            <rect class="x-grid" width="720" height="480" style="fill:url(#grid-5)"/>
+            <g class="x-reg"><path d="M16 24h16M24 16v16"/><path d="M688 24h16M696 16v16"/><path d="M688 456h16M696 448v16"/><path d="M16 456h16M24 448v16"/></g>
+            <g class="x-structure">
+              <rect class="sx-band" x="116" y="104" width="104" height="280"/>
+              <rect class="sx-band" x="260" y="104" width="104" height="280"/>
+              <rect class="sx-band" x="404" y="104" width="104" height="280"/>
+              <rect class="sx-band" x="548" y="104" width="104" height="280"/>
+              <path class="sx-faint" d="M72 336H648"/>
+              <path class="sx-faint" d="M72 288H648"/>
+              <path class="sx-faint" d="M72 240H648"/>
+              <path class="sx-faint" d="M72 192H648"/>
+              <path class="sx-faint" d="M72 144H648"/>
+              <path class="sx" d="M72 384H648"/>
+              <path class="sx" d="M168 384v8"/>
+              <path class="sx" d="M312 384v8"/>
+              <path class="sx" d="M456 384v8"/>
+              <path class="sx" d="M600 384v8"/>
             </g>
-
-            <!-- the opinion -->
-            <g class="rv-opinion">
-              <path d="M26 84h96a4 4 0 0 1 4 4v40a4 4 0 0 1-4 4H58l-12 14v-14H26a4 4 0 0 1-4-4V88a4 4 0 0 1 4-4z"/>
-              <text x="74" y="113">i like B</text>
-            </g>
-
-            <!-- the facilitation lens -->
-            <g class="rv-lens">
-              <rect x="168" y="52" width="56" height="140" rx="28"/>
-              <path class="lens-axis" d="M196 66v112" pathLength="1"/>
-            </g>
-
-            <!-- AI beside the flow, not in the seat of judgment -->
-            <g class="rv-ai">
-              <path class="ai-tether" d="M196 216v-18" pathLength="1"/>
-              <circle cx="196" cy="230" r="15"/>
-              <text x="196" y="234">AI</text>
-            </g>
-
-            <path class="flow-line rv-in" d="M138 122h22" pathLength="1"/>
-            <path class="flow-line rv-out" d="M232 122h18" pathLength="1"/>
-
-            <!-- the evidence -->
-            <g class="rv-evidence">
-              <rect x="256" y="66" width="118" height="112" rx="4"/>
-              <path class="hair" d="M256 92h118"/>
-              <text x="270" y="85">EVIDENCE</text>
-              <g class="ev-lines">
-                <path style="--i:0" d="M270 110h72" pathLength="1"/>
-                <path style="--i:1" d="M270 128h58" pathLength="1"/>
-                <path style="--i:2" d="M270 146h68" pathLength="1"/>
-              </g>
-              <path class="ev-check" style="--i:3" d="M270 163l7 7 13-14" pathLength="1"/>
+            <g class="x-parts">
+              <g class="part pin" data-t="58.4 -108.2 -136.4 0.67 0.58 0.12" data-o="136 288"><path d="M136 384V192"/><circle class="dot" cx="136" cy="192" r="4.5"/></g>
+              <g class="part pin" data-t="426.3 2.7 -62.2 0.89 0.81 0.08" data-o="152 340"><path d="M152 384V296"/><circle class="dot" cx="152" cy="296" r="4.5"/></g>
+              <g class="part pin" data-t="276.8 -167.3 -7 0.63 0.77 0.25" data-o="168 300"><path d="M168 384V216"/><circle class="dot" cx="168" cy="216" r="4.5"/></g>
+              <g class="part pin" data-t="142.9 -136.4 41.3 0.82 0.65 0.22" data-o="184 296"><path d="M184 384V208"/><circle class="dot" cx="184" cy="208" r="4.5"/></g>
+              <g class="part pin" data-t="6.4 -165.5 101.5 0.60 0.94 0.33" data-o="200 312"><path d="M200 384V240"/><circle class="dot" cx="200" cy="240" r="4.5"/></g>
+              <g class="part pin" data-t="-110.7 -79.9 -173.7 0.72 0.72 0.10" data-o="280 340"><path d="M280 384V296"/><circle class="dot" cx="280" cy="296" r="4.5"/></g>
+              <g class="part pin" data-t="-194.8 -19.5 91.4 0.94 0.85 0.34" data-o="296 336"><path d="M296 384V288"/><circle class="dot" cx="296" cy="288" r="4.5"/></g>
+              <g class="part pin" data-t="115.4 37.7 -52.6 0.82 0.98 0.24" data-o="312 296"><path d="M312 384V208"/><circle class="dot" cx="312" cy="208" r="4.5"/></g>
+              <g class="part pin" data-t="145.1 -43.3 114.6 0.86 0.85 0.21" data-o="328 328"><path d="M328 384V272"/><circle class="dot" cx="328" cy="272" r="4.5"/></g>
+              <g class="part pin" data-t="147 -145.8 124.3 0.82 0.57 0.11" data-o="344 316"><path d="M344 384V248"/><circle class="dot" cx="344" cy="248" r="4.5"/></g>
+              <g class="part pin" data-t="-131.4 43.9 177.1 0.92 0.61 0.07" data-o="424 272"><path d="M424 384V160"/><circle class="dot" cx="424" cy="160" r="4.5"/></g>
+              <g class="part pin" data-t="-261.4 -151 72.6 0.73 0.97 0.31" data-o="440 292"><path d="M440 384V200"/><circle class="dot" cx="440" cy="200" r="4.5"/></g>
+              <g class="part pin" data-t="116.1 -24.2 90.7 0.62 0.72 0.24" data-o="456 308"><path d="M456 384V232"/><circle class="dot" cx="456" cy="232" r="4.5"/></g>
+              <g class="part pin" data-t="14.5 75.2 -149.2 0.65 0.67 0.31" data-o="472 308"><path d="M472 384V232"/><circle class="dot" cx="472" cy="232" r="4.5"/></g>
+              <g class="part pin" data-t="-284.6 -12.9 -41 0.69 0.73 0.19" data-o="488 284"><path d="M488 384V184"/><circle class="dot" cx="488" cy="184" r="4.5"/></g>
+              <g class="part pin" data-t="-305.8 -29.5 40.3 0.89 0.85 0.28" data-o="568 308"><path d="M568 384V232"/><circle class="dot" cx="568" cy="232" r="4.5"/></g>
+              <g class="part pin" data-t="-100.3 -68.2 -177.2 0.82 0.99 0.05" data-o="584 272"><path d="M584 384V160"/><circle class="dot" cx="584" cy="160" r="4.5"/></g>
+              <g class="part pin" data-t="-388.1 -204.4 121 0.85 0.96 0.13" data-o="600 312"><path d="M600 384V240"/><circle class="dot" cx="600" cy="240" r="4.5"/></g>
+              <g class="part pin" data-t="-328.4 -129.9 74.2 0.64 0.60 0.06" data-o="616 296"><path d="M616 384V208"/><circle class="dot" cx="616" cy="208" r="4.5"/></g>
+              <g class="part pin" data-t="-465.1 -51.5 170.3 0.82 0.92 0.31" data-o="632 308"><path d="M632 384V232"/><circle class="dot" cx="632" cy="232" r="4.5"/></g>
             </g>
           </svg>
-          <figcaption>opinion · to evidence</figcaption>
         </figure>
       </article>
 
