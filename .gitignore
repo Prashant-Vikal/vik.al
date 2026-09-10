@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# The site has no dependencies, but keep these out if anything is ever added.
+node_modules/
+npm-debug.log*

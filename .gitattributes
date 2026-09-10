@@ -1,0 +1,14 @@
+# The briefing PDF has enough ASCII in its structure that git misdetects it as
+# text and tries to diff all 36k lines. Force binary handling for it and the
+# image assets so future updates stay a single blob swap.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.woff2 binary
+
+# Keep line endings sane for the source that is actually diffed.
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.svg  text eol=lf
+*.md   text eol=lf

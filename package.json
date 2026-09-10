@@ -1,0 +1,10 @@
+{
+  "name": "vik-al",
+  "private": true,
+  "version": "2.0.0",
+  "description": "vik.al — personal site. Plain HTML, CSS and JS; no build step.",
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "start": "node scripts/dev-server.js"
+  }
+}
