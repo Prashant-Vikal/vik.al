@@ -129,37 +129,59 @@
     });
   }
 
-  /* 0 as the drawing's top edge enters the viewport, 1 once its centre
-     reaches a little above the middle. */
-  function progress(svg) {
+  /* Scroll sets where each drawing is heading; time carries it there. The
+     goal reaches 1 once the drawing's centre is just past the middle of the
+     viewport, and the drawing trails behind it, so it is still settling
+     while you look at it and keeps going for a moment after you stop. */
+  var LAG = 0.55; /* seconds: time constant of the trail, ≈1.6 s to 95% */
+
+  function goalFor(svg) {
     var r = svg.getBoundingClientRect(), h = window.innerHeight;
-    var start = h, end = h * 0.58 - r.height / 2;
+    var start = h, end = h * 0.48 - r.height / 2;
     return clamp01((start - r.top) / (start - end));
   }
 
   if (figures.length && !reduced.matches) {
     var models = Array.prototype.map.call(figures, model);
-    var ticking = false;
+    var running = false, last = 0;
 
-    var update = function () {
-      ticking = false;
-      var h = window.innerHeight;
+    var frame = function (now) {
+      /* Clamp dt so a stalled or backgrounded tab does not jump on return. */
+      var dt = Math.min(0.064, Math.max(0, (now - last) / 1000));
+      last = now;
+      var h = window.innerHeight, follow = 1 - Math.exp(-dt / LAG), moving = false;
+
       models.forEach(function (m) {
         var r = m.svg.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > h + 200) return;
-        render(m, progress(m.svg));
+        var goal = goalFor(m.svg);
+        if (r.bottom < -200 || r.top > h + 200) {
+          /* Off screen: jump straight to the goal so nothing is caught
+             mid-flight when it comes back. */
+          m.shown = goal;
+          return;
+        }
+        var gap = goal - m.shown;
+        m.shown = Math.abs(gap) < 0.001 ? goal : m.shown + gap * follow;
+        if (m.shown !== goal) moving = true;
+        render(m, m.shown);
       });
+
+      if (moving) { window.requestAnimationFrame(frame); } else { running = false; }
     };
-    var request = function () {
-      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+
+    var wake = function () {
+      if (running) return;
+      running = true;
+      last = performance.now();
+      window.requestAnimationFrame(frame);
     };
 
     /* Set the starting state synchronously: a hidden document never runs
        requestAnimationFrame, and the drawings must not wait on it. */
-    models.forEach(function (m) { render(m, progress(m.svg)); });
+    models.forEach(function (m) { m.shown = goalFor(m.svg); render(m, m.shown); });
 
-    window.addEventListener("scroll", request, { passive: true });
-    window.addEventListener("resize", request);
+    window.addEventListener("scroll", wake, { passive: true });
+    window.addEventListener("resize", wake);
   }
 
   /* --- Rail index -------------------------------------------------------- */
