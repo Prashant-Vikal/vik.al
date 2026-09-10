@@ -130,14 +130,14 @@
   }
 
   /* Scroll sets where each drawing is heading; time carries it there. The
-     goal reaches 1 once the drawing's centre is just past the middle of the
+     goal reaches 1 once the drawing's centre is about the middle of the
      viewport, and the drawing trails behind it, so it is still settling
      while you look at it and keeps going for a moment after you stop. */
-  var LAG = 0.55; /* seconds: time constant of the trail, ≈1.6 s to 95% */
+  var LAG = 0.25; /* seconds: time constant of the trail, ≈0.75 s to 95% */
 
   function goalFor(svg) {
     var r = svg.getBoundingClientRect(), h = window.innerHeight;
-    var start = h, end = h * 0.48 - r.height / 2;
+    var start = h, end = h * 0.54 - r.height / 2;
     return clamp01((start - r.top) / (start - end));
   }
 
