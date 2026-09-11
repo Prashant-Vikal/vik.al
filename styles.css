@@ -29,11 +29,11 @@
 
   /* Warm paper, warm ink, one signal. */
   --paper:       light-dark(#f4f2ec, #131311);
-  --surface:     light-dark(#e5e0d3, #232219);
+  --surface:     light-dark(#eae7dd, #232219);
   --ink:         light-dark(#191813, #edeae2);
   --ink-2:       light-dark(#4c483f, #a8a298);
   --ink-3:       light-dark(#736d61, #918b7c);
-  --line:        light-dark(#8d8676, #6b6559);
+  --line:        light-dark(#87806f, #6b6559);
   --rule:        light-dark(rgba(25, 24, 19, 0.14),   rgba(237, 234, 226, 0.16));
   --rule-faint:  light-dark(rgba(25, 24, 19, 0.055),  rgba(237, 234, 226, 0.06));
   --signal:      light-dark(#bf3f18, #ff6a3d);
