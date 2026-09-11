@@ -18,6 +18,15 @@
   --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  /* Type scale, small end. Sized for legibility first: the mono labels are
+     uppercase and tracked, which reads smaller than its size, and Newsreader's
+     short x-height reads smaller than most text faces. In rem, so they follow
+     the reader's own browser text size. */
+  --fs-micro: .75rem;     /* 12px  chips, measure labels, tertiary meta */
+  --fs-label: .8125rem;   /* 13px  section labels, captions, metadata   */
+  --fs-small: .875rem;    /* 14px  nav, buttons, wordmark, standfirst   */
+  --fs-body:  1.1875rem;  /* 19px  running text                         */
+
   /* Warm paper, warm ink, one signal. */
   --paper:       light-dark(#f4f2ec, #131311);
   --surface:     light-dark(#e5e0d3, #232219);
@@ -54,8 +63,8 @@ body {
   color: var(--ink);
   font-family: var(--serif);
   font-optical-sizing: auto;
-  font-size: 17px;
-  line-height: 1.62;
+  font-size: var(--fs-body);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color .3s var(--ease), color .3s var(--ease);
@@ -82,7 +91,7 @@ img, svg { display: block; max-width: 100%; }
   background: var(--ink);
   color: var(--paper);
   font-family: var(--mono);
-  font-size: .75rem;
+  font-size: var(--fs-small);
 }
 .skip-link:focus { left: 0; }
 
@@ -90,7 +99,7 @@ img, svg { display: block; max-width: 100%; }
 
 .label {
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   font-weight: 500;
   letter-spacing: .13em;
   text-transform: uppercase;
@@ -161,7 +170,7 @@ em {
   align-items: center;
   gap: .5rem;
   font-family: var(--mono);
-  font-size: .8125rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -177,7 +186,7 @@ em {
   align-items: center;
   gap: .5rem;
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   letter-spacing: .05em;
   color: var(--ink-2);
   line-height: 1.45;
@@ -214,7 +223,7 @@ em {
   border: 1px solid var(--rule);
   border-radius: 999px;
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--ink-2);
@@ -267,7 +276,7 @@ em {
     gap: .75rem;
     padding: .3rem 0;
     font-family: var(--mono);
-    font-size: .75rem;
+    font-size: var(--fs-small);
     letter-spacing: .04em;
     color: var(--ink-3);
     text-decoration: none;
@@ -328,7 +337,7 @@ em {
 .section-opening { padding-block: clamp(4rem, 12vw, 9rem) clamp(3rem, 7vw, 6rem); }
 
 .statement {
-  font-size: clamp(2.35rem, 6.2vw, 4.6rem);
+  font-size: clamp(2.5rem, 6.4vw, 4.75rem);
   font-weight: 400;
   line-height: 1.04;
   letter-spacing: -0.025em;
@@ -338,16 +347,16 @@ em {
 }
 
 .lede {
-  font-size: clamp(1.0625rem, 1.5vw, 1.3125rem);
-  line-height: 1.66;
+  font-size: clamp(1.1875rem, 1.6vw, 1.4375rem);
+  line-height: 1.6;
   color: var(--ink-2);
-  max-width: 36em;
+  max-width: 32em;
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .standfirst {
   font-family: var(--mono);
-  font-size: .75rem;
+  font-size: var(--fs-small);
   line-height: 1.75;
   letter-spacing: .02em;
   color: var(--ink-3);
@@ -394,7 +403,7 @@ em {
     position: absolute;
     bottom: calc(100% + .45rem);
     font-family: var(--mono);
-    font-size: .625rem;
+    font-size: var(--fs-micro);
     letter-spacing: .12em;
     text-transform: uppercase;
     white-space: nowrap;
@@ -411,7 +420,7 @@ em {
     position: absolute;
     left: var(--at);
     font-family: var(--mono);
-    font-size: .6875rem;
+    font-size: var(--fs-label);
     letter-spacing: .08em;
     color: var(--ink-3);
   }
@@ -419,7 +428,7 @@ em {
 
   .measure-note {
     font-family: var(--mono);
-    font-size: .625rem;
+    font-size: var(--fs-micro);
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--line);
@@ -433,7 +442,7 @@ em {
 
 .role-meta {
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -442,7 +451,7 @@ em {
 .role-meta .role-title { color: var(--ink-2); }
 
 .role-org {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(1.875rem, 3.2vw, 2.5rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -450,7 +459,7 @@ em {
 
 .role-sector {
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   letter-spacing: .08em;
   color: var(--ink-3);
   margin: .5rem 0 1.125rem;
@@ -484,7 +493,7 @@ em {
 }
 
 .pov {
-  font-size: clamp(1.25rem, 2.4vw, 1.875rem);
+  font-size: clamp(1.375rem, 2.6vw, 2.0625rem);
   line-height: 1.5;
   letter-spacing: -0.012em;
   color: var(--ink-2);
@@ -520,14 +529,14 @@ em {
 .reg-num {
   grid-area: num;
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   font-weight: 500;
   letter-spacing: .1em;
   color: var(--signal);
 }
 .reg-name {
   grid-area: name;
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
   line-height: 1.2;
   letter-spacing: -0.015em;
 }
@@ -540,7 +549,7 @@ em {
 .reg-cat,
 .reg-status {
   font-family: var(--mono);
-  font-size: .625rem;
+  font-size: var(--fs-micro);
   letter-spacing: .13em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -550,7 +559,7 @@ em {
   grid-area: go;
   justify-self: end;
   font-family: var(--mono);
-  font-size: .75rem;
+  font-size: var(--fs-small);
   color: var(--ink-3);
   transition: transform .25s var(--ease), color .2s;
 }
@@ -598,6 +607,22 @@ em {
   .exhibit:nth-child(even) .exhibit-text   { grid-column: 1 / span 4; }
 }
 
+/* From 1080 to 1239px the rail takes its share and the column is at its
+   narrowest. Split 7/5 instead of 8/4 and tighten the label's rhythm, so a
+   label always sits clearly shorter than the drawing beside it rather than
+   nearly flush with it. The text size itself does not change. */
+@media (min-width: 1080px) and (max-width: 1239px) {
+  .exhibit-figure { grid-column: 1 / span 7; }
+  .exhibit-text   { grid-column: 8 / span 5; padding-top: .875rem; }
+  .exhibit:nth-child(even) .exhibit-figure { grid-column: 6 / span 7; }
+  .exhibit:nth-child(even) .exhibit-text   { grid-column: 1 / span 5; }
+  /* Scoped under .exhibit: the base .ex-meta and .ex-name rules come later
+     in the file and would otherwise win at equal specificity. */
+  .exhibit .ex-meta { margin-bottom: .625rem; }
+  .exhibit .ex-name { margin-bottom: .625rem; }
+  .exhibit .ex-desc { line-height: 1.5; }
+}
+
 .ex-meta {
   display: flex;
   flex-wrap: wrap;
@@ -605,7 +630,7 @@ em {
   gap: .5rem .9rem;
   margin-bottom: 1rem;
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   letter-spacing: .13em;
   text-transform: uppercase;
 }
@@ -615,14 +640,14 @@ em {
   padding: .2rem .5rem;
   border: 1px solid var(--rule);
   border-radius: 2px;
-  font-size: .625rem;
+  font-size: var(--fs-micro);
   letter-spacing: .1em;
   color: var(--ink-3);
 }
 .ex-status.is-wip { color: var(--signal); border-color: var(--signal); background: var(--signal-soft); }
 
 .ex-name {
-  font-size: clamp(1.625rem, 2.6vw, 2.125rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.3125rem);
   font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -700,7 +725,7 @@ em {
 .section-footer { padding-bottom: clamp(3rem, 6vw, 5rem); }
 
 .closing {
-  font-size: clamp(1.75rem, 4.4vw, 3.25rem);
+  font-size: clamp(1.875rem, 4.6vw, 3.5rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.025em;
@@ -726,7 +751,7 @@ em {
   background: var(--ink);
   color: var(--paper);
   font-family: var(--mono);
-  font-size: .75rem;
+  font-size: var(--fs-small);
   letter-spacing: .07em;
   text-transform: uppercase;
   text-decoration: none;
@@ -739,7 +764,7 @@ em {
 
 .link-secondary {
   font-family: var(--mono);
-  font-size: .75rem;
+  font-size: var(--fs-small);
   letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--ink-2);
@@ -757,7 +782,7 @@ em {
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
   font-family: var(--mono);
-  font-size: .6875rem;
+  font-size: var(--fs-label);
   letter-spacing: .06em;
   color: var(--ink-3);
 }
