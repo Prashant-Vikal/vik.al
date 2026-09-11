@@ -746,9 +746,13 @@ em {
    something to press: a comfortable target, rounded corners, and an arrow
    that says it opens elsewhere. */
 .link-primary {
-  /* Elevation: the one raised object on an otherwise flat page. Warm-tinted
-     on paper; plain black in the dark theme, where warm tints disappear. */
-  --lift: light-dark(rgba(25, 24, 19, .16), rgba(0, 0, 0, .55));
+  /* Elevation: the one raised object on an otherwise flat page. On paper the
+     shadow has to reach past the button to be seen at all, since the button
+     itself is near-black. In the dark theme a dark shadow cannot read on a
+     near-black page, so the outer layer becomes a faint light halo instead —
+     the button is the brightest thing on screen, and this lifts it. */
+  --lift-near: light-dark(rgba(25, 24, 19, .22), rgba(0, 0, 0, .60));
+  --lift-far:  light-dark(rgba(25, 24, 19, .16), rgba(237, 234, 226, .10));
   display: inline-flex;
   align-items: center;
   gap: .75rem;
@@ -765,9 +769,9 @@ em {
   line-height: 1.25;
   text-decoration: none;
   box-shadow:
-    0 1px 1px var(--lift),
-    0 3px 6px -1px var(--lift),
-    0 10px 24px -8px var(--lift);
+    0 2px 3px -1px var(--lift-near),
+    0 8px 18px -6px var(--lift-near),
+    0 22px 34px -18px var(--lift-far);
   transition: background-color .2s, border-color .2s,
     transform .15s var(--ease), box-shadow .2s var(--ease);
 }
@@ -776,15 +780,15 @@ em {
   border-color: var(--signal);
   transform: translateY(-1px);
   box-shadow:
-    0 1px 1px var(--lift),
-    0 6px 12px -2px var(--lift),
-    0 18px 36px -10px var(--lift);
+    0 3px 4px -1px var(--lift-near),
+    0 12px 24px -6px var(--lift-near),
+    0 30px 44px -20px var(--lift-far);
 }
 .link-primary:active {
   transform: translateY(0);
   box-shadow:
-    0 1px 1px var(--lift),
-    0 2px 4px -1px var(--lift);
+    0 1px 2px var(--lift-near),
+    0 3px 6px -2px var(--lift-far);
 }
 
 /* Centre the icons on the capitals, not on the line box. The label is set in
