@@ -746,6 +746,9 @@ em {
    something to press: a comfortable target, rounded corners, and an arrow
    that says it opens elsewhere. */
 .link-primary {
+  /* Elevation: the one raised object on an otherwise flat page. Warm-tinted
+     on paper; plain black in the dark theme, where warm tints disappear. */
+  --lift: light-dark(rgba(25, 24, 19, .16), rgba(0, 0, 0, .55));
   display: inline-flex;
   align-items: center;
   gap: .75rem;
@@ -761,16 +764,52 @@ em {
   font-weight: 500;
   line-height: 1.25;
   text-decoration: none;
-  transition: background-color .2s, border-color .2s, transform .15s var(--ease);
+  box-shadow:
+    0 1px 1px var(--lift),
+    0 3px 6px -1px var(--lift),
+    0 10px 24px -8px var(--lift);
+  transition: background-color .2s, border-color .2s,
+    transform .15s var(--ease), box-shadow .2s var(--ease);
 }
-.link-primary:hover { background: var(--signal); border-color: var(--signal); }
-.link-primary:active { transform: translateY(1px); }
+.link-primary:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 1px var(--lift),
+    0 6px 12px -2px var(--lift),
+    0 18px 36px -10px var(--lift);
+}
+.link-primary:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 1px var(--lift),
+    0 2px 4px -1px var(--lift);
+}
 
-/* Same face as the arrow in "LinkedIn ↗", so the two links point alike. */
+/* Centre the icons on the capitals, not on the line box. The label is set in
+   title case, so its visual middle is halfway up the capitals; flexbox would
+   otherwise centre the full line box, which puts Newsreader's capitals
+   1.87px high at this size. text-box trims the line box to cap height and
+   baseline. Where it is unsupported, nudge by the same measured amount
+   (1.87px at 19px, 0.1em), which holds for any number of lines. */
+.link-text { text-box: trim-both cap alphabetic; }
+@supports not (text-box: trim-both cap alphabetic) {
+  .link-text { position: relative; top: .1em; }
+}
+
+/* Both icons are drawn centred in their own boxes, at the same height and the
+   same rendered stroke, so flexbox can line them up exactly. */
 .link-go {
-  margin-left: .1rem;
-  font-family: var(--mono);
-  font-size: 1em;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
   transition: transform .2s var(--ease);
 }
 .link-primary:hover .link-go { transform: translate(2px, -2px); }
@@ -784,10 +823,16 @@ em {
 
 @media (prefers-reduced-motion: reduce) {
   .link-primary, .link-go { transition: none; }
-  .link-primary:active, .link-primary:hover .link-go { transform: none; }
+  .link-primary:hover, .link-primary:active, .link-primary:hover .link-go { transform: none; }
 }
-.doc-glyph { width: 15px; height: 18px; flex: none; }
-.doc-glyph path { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
+.doc-glyph { width: 17px; height: 20px; flex: none; }
+.doc-glyph path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
 .doc-glyph .doc-rule { stroke-linecap: round; opacity: .7; }
 
 .link-secondary {
