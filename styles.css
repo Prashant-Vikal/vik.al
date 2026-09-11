@@ -741,23 +741,51 @@ em {
   margin-bottom: clamp(3rem, 7vw, 5.5rem);
 }
 
+/* The one action on the page. It speaks in the human voice rather than the
+   mono of the labels and tags, which are not clickable, and it is shaped like
+   something to press: a comfortable target, rounded corners, and an arrow
+   that says it opens elsewhere. */
 .link-primary {
   display: inline-flex;
   align-items: center;
   gap: .75rem;
-  padding: .95rem 1.4rem;
+  max-width: 100%;
+  min-height: 3.75rem;
+  padding: .85rem 1.25rem .85rem 1.35rem;
   border: 1px solid var(--ink);
-  border-radius: 2px;
+  border-radius: 6px;
   background: var(--ink);
   color: var(--paper);
-  font-family: var(--mono);
-  font-size: var(--fs-small);
-  letter-spacing: .07em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.25;
   text-decoration: none;
-  transition: background-color .2s, color .2s;
+  transition: background-color .2s, border-color .2s, transform .15s var(--ease);
 }
 .link-primary:hover { background: var(--signal); border-color: var(--signal); }
+.link-primary:active { transform: translateY(1px); }
+
+/* Same face as the arrow in "LinkedIn ↗", so the two links point alike. */
+.link-go {
+  margin-left: .1rem;
+  font-family: var(--mono);
+  font-size: 1em;
+  transition: transform .2s var(--ease);
+}
+.link-primary:hover .link-go { transform: translate(2px, -2px); }
+
+/* On a phone the button spans the column, so the label can wrap without
+   looking cramped and the arrow keeps to the far edge. */
+@media (max-width: 599px) {
+  .link-primary { display: flex; width: 100%; }
+  .link-text { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-primary, .link-go { transition: none; }
+  .link-primary:active, .link-primary:hover .link-go { transform: none; }
+}
 .doc-glyph { width: 15px; height: 18px; flex: none; }
 .doc-glyph path { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; }
 .doc-glyph .doc-rule { stroke-linecap: round; opacity: .7; }
