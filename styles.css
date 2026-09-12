@@ -37,6 +37,17 @@
   --rule:        light-dark(rgba(25, 24, 19, 0.14),   rgba(237, 234, 226, 0.16));
   --rule-faint:  light-dark(rgba(25, 24, 19, 0.055),  rgba(237, 234, 226, 0.06));
   --signal:      light-dark(#bf3f18, #ff6a3d);
+
+  /* Material palette, used only inside the drawings. Three hues, one job
+     each, so colour carries meaning instead of decorating:
+       --mat    the material the system organises   (stays)
+       --stale  the failure state it removes        (fades out as it settles)
+       --ok     what it verifies                   (arrives as it settles)
+     Each is weighted near the signal and the ink strokes, so none of them
+     shouts over the structure. */
+  --mat:         light-dark(#465d80, #8ba1c6);
+  --stale:       light-dark(#856225, #c99a4c);
+  --ok:          light-dark(#256b5e, #5bb39b);
   --signal-soft: light-dark(rgba(191, 63, 24, 0.10), rgba(255, 106, 61, 0.12));
 
   --rail-w: 15rem;
@@ -586,9 +597,21 @@ em {
 .exhibit-figure {
   order: -1;
   margin: 0;
-  background: var(--surface);
-  border: 1px solid var(--rule);
 }
+
+/* Names the transformation, so the drawing does not have to be decoded. */
+.ex-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .55rem;
+  margin-top: .7rem;
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.ex-arrow { color: var(--signal); }
 
 .exhibit-text {
   border-top: 1px solid var(--rule);
@@ -669,11 +692,27 @@ em {
    main.js drives it, and it defaults to 1 so the settled state is the
    fallback. Ink is the material. Signal is only ever the structure. */
 
-.exhibit-figure svg { --s: 1; display: block; width: 100%; height: auto; }
+.exhibit-figure svg {
+  --s: 1;
+  --m: 1;
+  /* What the drawing settles into. Overridden per family below. */
+  --settled: var(--mat);
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+/* Colour follows the settling: ochre while the drawing is in disorder, its
+   own hue once the system has hold of it. --s already drives the motion, so
+   the mix needs no JavaScript of its own. */
+.exhibit-figure :where(rect, circle, path, line, polyline) {
+  stroke: color-mix(in srgb, var(--settled) calc(var(--m) * 100%), var(--stale));
+}
 
 .exhibit-figure :where(rect, circle, path, line, polyline) {
   fill: none;
-  stroke: var(--ink-2);
   stroke-width: 1.25;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -684,9 +723,19 @@ em {
 .exhibit-figure .x-grid { stroke: none; }
 .exhibit-figure .x-reg path { stroke: var(--ink-3); opacity: .55; }
 
-.exhibit-figure .solid { fill: var(--ink-3); stroke: none; }
-.exhibit-figure .dot   { fill: var(--ink-2); stroke: none; }
-.exhibit-figure .k     { stroke: var(--ink-3); }
+.exhibit-figure .solid,
+.exhibit-figure .dot {
+  fill: color-mix(in srgb, var(--settled) calc(var(--m) * 100%), var(--stale));
+  stroke: none;
+}
+.exhibit-figure .k { opacity: .7; }
+
+/* 03 — the components are the source of truth, so they never change colour;
+   the documentation goes from stale to verified as it comes back into
+   register. 05 — the same move: opinions become measured evidence. */
+.exhibit-figure .src :where(rect, path) { stroke: var(--mat); }
+.exhibit-figure .doc { --settled: var(--ok); }
+.exhibit-figure .pin circle { --settled: var(--ok); }
 
 /* structure */
 .exhibit-figure .sx       { stroke: var(--signal); stroke-width: 1.5; opacity: var(--s); }
@@ -701,9 +750,9 @@ em {
 }
 
 /* 02 — the thread, and the gate that is left for a person */
-.exhibit-figure .thread     { stroke: var(--line); stroke-width: 1.5; }
+.exhibit-figure .thread     { stroke: var(--stale); stroke-width: 1.5; }
 .exhibit-figure .sx-thread  { stroke: var(--signal); stroke-width: 2; opacity: var(--s); }
-.exhibit-figure .node       { fill: var(--ink-2); stroke: none; }
+.exhibit-figure .node       { fill: color-mix(in srgb, var(--mat) calc(var(--m) * 100%), var(--stale)); stroke: none; }
 .exhibit-figure .gate-ring  { stroke: var(--ink); stroke-width: 2.25; fill: var(--surface); }
 .exhibit-figure .gate-core  { fill: var(--ink); stroke: none; }
 

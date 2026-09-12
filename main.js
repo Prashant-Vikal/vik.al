@@ -92,8 +92,11 @@
     if (Math.abs(p - m.p) < 0.0005) return;
     m.p = p;
 
-    /* Structure arrives first; the material follows it into place. */
+    /* Structure arrives first; the material follows it into place. --s is
+       the structure's progress, --m the material's: colour rides on --m so a
+       thing is never coloured "settled" while it is still visibly moving. */
     m.svg.style.setProperty("--s", ease(clamp01(p / 0.55)).toFixed(3));
+    m.svg.style.setProperty("--m", p.toFixed(3));
 
     m.parts.forEach(function (q) {
       var k = 1 - ease(clamp01((p - q.d) / 0.65));
