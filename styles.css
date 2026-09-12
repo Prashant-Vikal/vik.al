@@ -38,16 +38,14 @@
   --rule-faint:  light-dark(rgba(25, 24, 19, 0.055),  rgba(237, 234, 226, 0.06));
   --signal:      light-dark(#bf3f18, #ff6a3d);
 
-  /* Material palette, used only inside the drawings. Three hues, one job
-     each, so colour carries meaning instead of decorating:
-       --mat    the material the system organises   (stays)
-       --stale  the failure state it removes        (fades out as it settles)
-       --ok     what it verifies                   (arrives as it settles)
-     Each is weighted near the signal and the ink strokes, so none of them
-     shouts over the structure. */
-  --mat:         light-dark(#465d80, #8ba1c6);
-  --stale:       light-dark(#856225, #c99a4c);
-  --ok:          light-dark(#256b5e, #5bb39b);
+  /* Drawing palette, two slots, so a different scheme is a two-line change:
+       --mat   the objects the system handles
+       --warn  the state it is fixing, before
+     Restraint by default: both are ink, and the "before" reads through form
+     (squiggle, queue, drift, dashes) rather than through a warning colour.
+     People are never coloured -- they are always drawn in ink. */
+  --mat:         light-dark(#6d4526, #c9a184);
+  --warn:        light-dark(#736d61, #918b7c);
   --signal-soft: light-dark(rgba(191, 63, 24, 0.10), rgba(255, 106, 61, 0.12));
 
   --rail-w: 15rem;
@@ -708,7 +706,7 @@ em {
    own hue once the system has hold of it. --s already drives the motion, so
    the mix needs no JavaScript of its own. */
 .exhibit-figure :where(rect, circle, path, line, polyline) {
-  stroke: color-mix(in srgb, var(--settled) calc(var(--m) * 100%), var(--stale));
+  stroke: color-mix(in srgb, var(--settled) calc(var(--m) * 100%), var(--warn));
 }
 
 .exhibit-figure :where(rect, circle, path, line, polyline) {
@@ -725,17 +723,27 @@ em {
 
 .exhibit-figure .solid,
 .exhibit-figure .dot {
-  fill: color-mix(in srgb, var(--settled) calc(var(--m) * 100%), var(--stale));
+  fill: color-mix(in srgb, var(--settled) calc(var(--m) * 100%), var(--warn));
   stroke: none;
 }
 .exhibit-figure .k { opacity: .7; }
 
-/* 03 — the components are the source of truth, so they never change colour;
-   the documentation goes from stale to verified as it comes back into
-   register. 05 — the same move: opinions become measured evidence. */
-.exhibit-figure .src :where(rect, path) { stroke: var(--mat); }
-.exhibit-figure .doc { --settled: var(--ok); }
-.exhibit-figure .pin circle { --settled: var(--ok); }
+/* The component and the work under review are the source of truth, so they
+   never change: everything else settles around them. */
+.exhibit-figure .src :where(rect, path, circle) { stroke: var(--mat); }
+
+/* Things that exist in only one of the two states, so a drawing can show two
+   different scenes rather than the same shapes rearranged. */
+.exhibit-figure .only-before { opacity: calc(1 - var(--m)); }
+.exhibit-figure .only-after  { opacity: var(--m); }
+
+/* People are always ink: never the material, never the structure. */
+.exhibit-figure :is(.person, .human, .bot) :where(circle, path, rect) { stroke: var(--ink); }
+.exhibit-figure :is(.person, .human, .bot) .solid { fill: var(--ink); }
+.exhibit-figure .tick { stroke: var(--ink); stroke-width: 2; }
+.exhibit-figure .page rect { stroke: var(--mat); }
+.exhibit-figure .hair { opacity: .4; }
+.exhibit-figure .scale { stroke: var(--signal); opacity: var(--s); }
 
 /* structure */
 .exhibit-figure .sx       { stroke: var(--signal); stroke-width: 1.5; opacity: var(--s); }
@@ -750,17 +758,11 @@ em {
 }
 
 /* 02 — the thread, and the gate that is left for a person */
-.exhibit-figure .thread     { stroke: var(--stale); stroke-width: 1.5; }
+.exhibit-figure .thread     { stroke: var(--warn); stroke-width: 1.5; }
 .exhibit-figure .sx-thread  { stroke: var(--signal); stroke-width: 2; opacity: var(--s); }
-.exhibit-figure .node       { fill: color-mix(in srgb, var(--mat) calc(var(--m) * 100%), var(--stale)); stroke: none; }
+.exhibit-figure .node       { fill: color-mix(in srgb, var(--mat) calc(var(--m) * 100%), var(--warn)); stroke: none; }
 .exhibit-figure .gate-ring  { stroke: var(--ink); stroke-width: 2.25; fill: var(--surface); }
 .exhibit-figure .gate-core  { fill: var(--ink); stroke: none; }
-
-/* 04 — lanes turn from walls into structure as they open */
-.exhibit-figure .lane {
-  stroke: color-mix(in srgb, var(--signal) calc(var(--s) * 100%), var(--line));
-  stroke-width: 1.25;
-}
 
 /* 11.1 Motion opt-out: the drawings simply stay settled (main.js does not
    run them), and the availability beacon stops pulsing. */
