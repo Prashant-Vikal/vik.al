@@ -7,7 +7,73 @@
    judges is set in the serif. Compute, then human.
    ========================================================================= */
 
-/* --- 1. Tokens ----------------------------------------------------------- */
+/* --- 1. Fallback faces --------------------------------------------------- */
+
+/* The webfonts arrive after the first paint. If the stand-in has different
+   advance widths, every line re-wraps when the real font lands and the page
+   jumps: measured at 244px on a 375px viewport, because IBM Plex Mono is 26%
+   wider than the system mono it was falling back to.
+
+   Each face below scales a local font so its metrics match the webfont's, so
+   the page is laid out once and the swap is invisible. size-adjust matches
+   the advance width; the ascent and descent overrides are expressed against
+   that adjusted em, which is why they are not the raw ratios. A face whose
+   local() font is missing simply fails, and the stack moves on.
+
+   Measured, not guessed: per em, Newsreader runs 21.01 wide to Georgia's
+   20.10 and Times' 18.58; Plex Mono runs 23.40 to Menlo's 23.48. */
+
+@font-face {
+  font-family: "Newsreader Fb Georgia";
+  src: local("Georgia");
+  size-adjust: 104.49%;
+  ascent-override: 70.82%;
+  descent-override: 24.88%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Newsreader Fb Times";
+  src: local("Times New Roman");
+  size-adjust: 113.06%;
+  ascent-override: 65.45%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+}
+
+/* local() matches the font's own name, not the family you would write in a
+   stack: local("Menlo") finds nothing, local("Menlo-Regular") finds it. */
+@font-face {
+  font-family: "Plex Fb Menlo";
+  src: local("Menlo-Regular"), local("Menlo Regular");
+  size-adjust: 99.66%;
+  ascent-override: 102.35%;
+  descent-override: 27.09%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Plex Fb Consolas";
+  src: local("Consolas");
+  size-adjust: 109.09%;
+  ascent-override: 93.5%;
+  descent-override: 24.75%;
+  line-gap-override: 0%;
+}
+
+/* Courier New is the one that is almost always there, and at 23.40 per em it
+   matches Plex Mono's 23.40 outright. It is the backstop, not the first
+   choice, because Menlo and Consolas are the better-looking match. */
+@font-face {
+  font-family: "Plex Fb Courier";
+  src: local("Courier New");
+  size-adjust: 99.98%;
+  ascent-override: 102.02%;
+  descent-override: 27.01%;
+  line-gap-override: 0%;
+}
+
+/* --- 2. Tokens ----------------------------------------------------------- */
 
 /* Every colour is declared once, as light-dark(light, dark). The theme is
    chosen by `color-scheme` alone, so the two palettes cannot drift apart. */
@@ -15,8 +81,8 @@
 :root {
   color-scheme: light dark;
 
-  --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
-  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif: "Newsreader", "Newsreader Fb Georgia", "Newsreader Fb Times", Georgia, serif;
+  --mono: "IBM Plex Mono", "Plex Fb Menlo", "Plex Fb Consolas", "Plex Fb Courier", ui-monospace, monospace;
 
   /* Type scale, small end. Sized for legibility first: the mono labels are
      uppercase and tracked, which reads smaller than its size, and Newsreader's
@@ -63,7 +129,13 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+/* scrollbar-gutter keeps the space reserved whether or not a scrollbar is
+   showing, so content is never nudged sideways when one appears. */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -297,7 +369,10 @@ em {
   .rail-nav a[aria-current="true"] .n { color: var(--signal); }
 
   .rail-bottom { display: flex; margin-top: auto; }
-  .theme-toggle-label { display: inline; }
+  /* main.js rewrites this label to match the theme after the first paint.
+     Pin the width so "Dark" and "Light" occupy the same space and that
+     rewrite cannot nudge the button's contents. */
+  .theme-toggle-label { display: inline-block; min-width: 3.25em; }
 }
 
 /* --- 6. Sections --------------------------------------------------------- */
