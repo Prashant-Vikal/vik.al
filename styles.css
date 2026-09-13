@@ -662,7 +662,20 @@ em {
 
 /* Exhibits: a large panel and a wall label, bottom-aligned, alternating. */
 
-.exhibits { display: grid; gap: clamp(4.5rem, 10vw, 8rem); }
+/* The gap has to be read against the height of what it separates, not on its
+   own. Tied to 10vw it bottomed out at 72px on a 375px screen — where the
+   drawing stacks above the label and each exhibit is TALLER (552px) than on a
+   laptop (498px). So the weakest separator sat under the longest items: 13% of
+   an exhibit against 26% on desktop, and six of them read as one wall. The
+   floor is what matters here, and it is doing all the work.
+
+   It is a flat value rather than a clamp because a clamp would be pretending.
+   The ceiling has to stay under the section padding (clamp(3.5rem, 8vw, 7rem),
+   112px at laptop) — two works must never sit further apart than two sections
+   do, or the hierarchy inverts — and the floor has to clear 100px for mobile.
+   That leaves a 4px band, so a clamp would have read as responsive while
+   moving 104px to 108px and nothing else. 6.5rem, stated plainly. */
+.exhibits { display: grid; gap: 6.5rem; }
 
 .exhibit { display: grid; gap: 1.5rem; scroll-margin-top: 7rem; }
 @media (min-width: 1080px) { .exhibit { scroll-margin-top: 3rem; } }
