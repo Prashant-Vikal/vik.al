@@ -194,6 +194,23 @@ em {
   color: var(--signal);
 }
 
+/* The page has exactly two emphases, and they are shaped very differently:
+   "$1.16M ARR" is ten glyphs of caps, figures and a currency sign with no
+   lowercase to break it up, so it sets as a solid block of signal. Measured,
+   it carries 4.74 units of ink per pixel of width against 4.06 for
+   "zero-error tactical UI" — 17% denser — which is why the lowercase one
+   reads as the smaller of the two even though both are 19px.
+
+   Weight, not size. A size bump looked like the obvious fix and is the wrong
+   one: line-height here is unitless, so a larger font-size gives the inline
+   box its own taller line-height (31.3px against the paragraph's 30.4px) and
+   the line carrying the emphasis drifts out of the rhythm of the ones around
+   it. Weight changes the colour of the run and leaves the line box alone.
+
+   It needs a class because CSS cannot see letter case, and a blanket rule
+   would thicken the figures too, which are already the heavier of the two. */
+em.em-lc { font-weight: 600; }
+
 /* --- 4. Layout guides ---------------------------------------------------- */
 /* Four hairlines marking the column the page is built on. */
 
