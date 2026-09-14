@@ -8,3 +8,6 @@ npm-debug.log*
 # Local editor/tooling config. The deploy uploads the repo root as-is,
 # so anything tracked here is served publicly.
 .claude/
+
+# Design notes stay local; they are not published or pushed.
+README.md
