@@ -441,6 +441,13 @@ em.em-lc {
 .has-js .section.in-view > *:nth-child(3) { transition-delay: .14s; }
 .has-js .section.in-view > *:nth-child(4) { transition-delay: .21s; }
 
+/* Exempt the Hero section from the initial slide-up animation to guarantee 0 CLS on load */
+.has-js .section-opening > * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .has-js .section > * { opacity: 1; transform: none; transition: none; }
@@ -448,7 +455,15 @@ em.em-lc {
 
 /* --- 7. Opening ---------------------------------------------------------- */
 
-.section-opening { padding-block: clamp(4rem, 12vw, 9rem) clamp(3rem, 7vw, 6rem); }
+/* .section-opening { padding-block: clamp(4rem, 12vw, 9rem) clamp(3rem, 7vw, 6rem); } */
+.section-opening { 
+  min-height: 85vh; /* Creates the "Peek Effect" to force scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  contain: layout; /* Locks the bounding box to prevent CLS */
+  padding-block: clamp(4rem, 12vw, 9rem) clamp(3rem, 7vw, 6rem); 
+}
 
 .statement {
   font-size: clamp(2.5rem, 6.4vw, 4.75rem);
