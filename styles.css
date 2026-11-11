@@ -810,7 +810,7 @@ em.em-lc {
 }
 
 .ex-desc { color: var(--ink-2); max-width: 32em; }
-.ex-desc a { color: var(--signal); }
+.exhibit-text a { color: var(--signal); }
 
 .has-js .exhibit-text { opacity: 0; transform: translateY(12px); }
 .has-js .exhibit.in-view .exhibit-text {
