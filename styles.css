@@ -749,6 +749,9 @@ em.em-lc {
   border-top: 1px solid var(--rule);
   padding-top: 1.25rem;
 }
+.exhibit-text  a{
+   text-decoration: none;
+}
 
 @media (min-width: 900px) {
   .exhibit {
