@@ -601,7 +601,7 @@ em.em-lc {
 .link-container {
   display: flex;
   gap: 24px;
-  margin-top: 40px; /* 1. Adds space above the entire container */
+  margin-top: 24px; /* 1. Adds space above the entire container */
 }
 
 /* 2. Mobile styles (Stacked vertically) */
