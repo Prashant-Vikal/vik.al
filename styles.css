@@ -609,7 +609,7 @@ em.em-lc {
   .link-container {
     flex-direction: column;
     align-items: flex-start; /* 2. Stops links from stretching to full width */
-    gap: 8px;
+    gap: 12px;
   }
 }
 
