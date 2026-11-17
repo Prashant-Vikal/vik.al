@@ -596,6 +596,20 @@ em.em-lc {
 
 .role-body { color: var(--ink-2); max-width: 32em; }
 
+/* Links under roles */
+/* 1. Default desktop styles (Side-by-side) */
+.link-container {
+  display: flex;
+  gap: 24px;
+}
+
+/* 2. Mobile styles (Stacked vertically) */
+@media (max-width: 600px) {
+  .link-container {
+    flex-direction: column; 
+  }
+}
+
 /* --- 9. Point of view ---------------------------------------------------- */
 
 .section-pov {
